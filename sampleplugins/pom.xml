@@ -91,6 +91,11 @@
             <artifactId>metedata-search</artifactId>
             <version>0.1.34172-pretesting</version>
         </dependency>
+        <dependency>
+            <groupId>nl.mpi</groupId>
+            <artifactId>kinnate-plugins-export</artifactId>
+            <version>0.2.34186-pretesting</version>
+        </dependency>
     </dependencies>
     <repositories>
         <repository>
