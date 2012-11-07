@@ -1,6 +1,8 @@
 package nl.mpi.pluginloader;
 
-import java.io.File;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import javax.swing.JFrame;
@@ -24,7 +26,18 @@ public class ApplicationSample extends JFrame {
         JFrame jFrame = new ApplicationSample();
         jFrame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         JMenuBar jMenuBar = new JMenuBar();
-        final JTextArea jTextArea = new JTextArea();
+        StringBuilder stringBuilder = new StringBuilder();
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(ApplicationSample.class.getResourceAsStream("/readme.txt"), "UTF-8"));
+            String readString;
+            while (null != (readString = bufferedReader.readLine())) {
+                stringBuilder.append(readString);
+                stringBuilder.append("\n");
+            }
+        } catch (IOException exception) {
+            stringBuilder.append(exception.getMessage());
+        }
+        final JTextArea jTextArea = new JTextArea(stringBuilder.toString());
         PluginManager pluginManager = new PluginManager() {
             public boolean isActivated(BasePlugin kinOathPlugin) {
                 try {
@@ -64,7 +77,7 @@ public class ApplicationSample extends JFrame {
             }
         };
         try {
-            jMenuBar.add(new PluginMenu(new PluginService(new URL[]{new File(System.getProperty("user.home"), "TLA-Plugins").toURI().toURL(), new URL("file:///Users/petwit2/TLA-Plugins/")}), pluginManager, false));
+            jMenuBar.add(new PluginMenu(new PluginService(new URL[]{new URL("file:///path-to-plugins/plugin-jar-name.jar")}), pluginManager, false));
         } catch (MalformedURLException exception) {
             jMenuBar.add(new JLabel(exception.getMessage()));
         }

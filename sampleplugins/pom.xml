@@ -76,6 +76,11 @@
             <artifactId>plugins-core</artifactId>
             <version>0.0.34108-pretesting</version>
         </dependency>
+        <dependency>
+            <groupId>nl.mpi</groupId>
+            <artifactId>pluginloader</artifactId>
+            <version>0.1.34108-pretesting</version>
+        </dependency>
     </dependencies>
     <repositories>
         <repository>
@@ -95,5 +100,4 @@
             <url>https://lux15.mpi.nl/nexus/content/repositories/MPI</url>
         </repository>
     </distributionManagement>
-
 </project>
