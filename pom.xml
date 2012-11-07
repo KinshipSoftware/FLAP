@@ -13,8 +13,6 @@
         <module>core</module>
         <module>pluginloader</module>
         <module>sampleplugins</module>
-        <module>export</module>
-        <module>metadatasearch</module>    
     </modules>
 
     <!--    <scm>
