@@ -1,4 +1,4 @@
-package nl.mpi.pluginloader;
+package nl.mpi.pluginsamples;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

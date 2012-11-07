@@ -7,7 +7,7 @@
     <!--    Either use the snapshot version of manually enter the current build number. 
     The build number is only required when depending on the output in other projects or building to the server.-->
     <!--<version>${plugin.majorVersion}.${plugin.minorVersion}-${plugin.branch}-SNAPSHOT</version>-->
-    <version>${plugin.majorVersion}.${plugin.minorVersion}.34108-${plugin.branch}</version>
+    <version>${plugin.majorVersion}.${plugin.minorVersion}.34183-${plugin.branch}</version>
     <packaging>jar</packaging>
 
     <name>Sample Plugins</name>
@@ -80,6 +80,21 @@
             <groupId>nl.mpi</groupId>
             <artifactId>pluginloader</artifactId>
             <version>0.1.34108-pretesting</version>
+        </dependency>
+        <dependency>
+            <groupId>nl.mpi</groupId>
+            <artifactId>metedata-search-V0-0</artifactId>
+            <version>0.0.33986-pretesting</version>
+        </dependency>
+        <dependency>
+            <groupId>nl.mpi</groupId>
+            <artifactId>metedata-search-V0-1</artifactId>
+            <version>0.1.34170-pretesting</version>
+        </dependency>
+        <dependency>
+            <groupId>nl.mpi</groupId>
+            <artifactId>metedata-search</artifactId>
+            <version>0.1.34172-pretesting</version>
         </dependency>
     </dependencies>
     <repositories>

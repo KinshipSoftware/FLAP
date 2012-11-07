@@ -1,6 +1,7 @@
-package nl.mpi.pluginloader;
+package nl.mpi.pluginsamples;
 
 import nl.mpi.kinnate.plugin.BasePlugin;
+import nl.mpi.pluginloader.PluginSettings;
 
 /**
  * Document : PluginSample Created on : Dec 22, 2011, 3:58:34 PM

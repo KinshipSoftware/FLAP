@@ -1,4 +1,4 @@
-package nl.mpi.pluginloader;
+package nl.mpi.pluginsamples;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,6 +13,8 @@ import javax.swing.JTextArea;
 import nl.mpi.arbil.plugin.ActivatablePlugin;
 import nl.mpi.arbil.plugin.PluginException;
 import nl.mpi.kinnate.plugin.BasePlugin;
+import nl.mpi.pluginloader.PluginManager;
+import nl.mpi.pluginloader.PluginService;
 import nl.mpi.pluginloader.ui.PluginMenu;
 
 /**

@@ -1,4 +1,4 @@
-package nl.mpi.pluginloader;
+package nl.mpi.pluginsamples;
 
 import junit.framework.TestCase;
 import nl.mpi.arbil.plugin.PluginException;
@@ -27,7 +27,7 @@ public class BuildNumberTest extends TestCase {
     public class AbstractBasePluginImpl extends AbstractBasePlugin {
 
         public AbstractBasePluginImpl() throws PluginException {
-            super("test name", "test description", "nl.mpi.pluginloader");
+            super("test name", "test description", "nl.mpi.pluginsamples");
         }
     }
 }
