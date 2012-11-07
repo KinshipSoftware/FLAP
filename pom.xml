@@ -4,8 +4,8 @@
                       http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>nl.mpi</groupId>
-    <artifactId>plugins.parent</artifactId>
-    <name>plugins_parent</name>
+    <artifactId>plugins-parent</artifactId>
+    <name>Plugins Parent</name>
     <packaging>pom</packaging>
     <version>1.0</version>
     <description>Parent pom for the plugins</description>
@@ -14,7 +14,7 @@
         <module>pluginloader</module>
         <module>sampleplugins</module>
     </modules>
-
+    
     <!--    <scm>
         <developerConnection>scm:svn:https://svn.mpi.nl/LAT/Kinnate/trunk/</developerConnection>
         <url>https://trac.mpi.nl/wiki/KinOath</url>
@@ -22,8 +22,9 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <plugin.majorVersion>0</plugin.majorVersion>
+        <plugin.minorVersion>1</plugin.minorVersion>
+        <plugin.branch>pretesting</plugin.branch>
     </properties>
-
-
 </project>
 

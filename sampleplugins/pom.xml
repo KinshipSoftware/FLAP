@@ -11,6 +11,11 @@
     <packaging>jar</packaging>
 
     <name>Sample Plugins</name>
+    <parent>
+        <groupId>nl.mpi</groupId>
+        <artifactId>plugins-parent</artifactId>
+        <version>1.0</version>
+    </parent> 
     <url>http://maven.apache.org</url>
     <build>
         <resources>
@@ -59,12 +64,6 @@
             </plugin>
         </plugins>
     </build>
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <plugin.majorVersion>0</plugin.majorVersion>
-        <plugin.minorVersion>0</plugin.minorVersion>
-        <plugin.branch>pretesting</plugin.branch>
-    </properties>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
