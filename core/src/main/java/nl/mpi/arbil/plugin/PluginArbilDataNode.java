@@ -17,7 +17,6 @@
  */
 package nl.mpi.arbil.plugin;
 
-import java.net.URI;
 import javax.swing.ImageIcon;
 
 /**
@@ -32,19 +31,10 @@ public interface PluginArbilDataNode {
      */
     public abstract ImageIcon getIcon();
 
-    public abstract boolean isLoading();
-
     /**
      * Gets an array of the children of this node.
      *
      * @return An array of the next level child nodes.
      */
     public abstract PluginArbilDataNode[] getChildArray();
-
-    /**
-     * Returns the URI object for this node.
-     *
-     * @return A URI that this node represents.
-     */
-    public URI getURI();
 }
