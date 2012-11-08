@@ -7,7 +7,7 @@
     <!--    Either use the snapshot version of manually enter the current build number. 
     The build number is only required when depending on the output in other projects or building to the server.-->
     <!--<version>${plugin.majorVersion}.${plugin.minorVersion}-${plugin.branch}-SNAPSHOT</version>-->
-    <version>${plugin.majorVersion}.${plugin.minorVersion}.34188-${plugin.branch}</version>
+    <version>${plugin.majorVersion}.${plugin.minorVersion}.34200-${plugin.branch}</version>
     <packaging>jar</packaging>
 
     <name>Sample Plugins</name>
@@ -31,7 +31,20 @@
                 </includes>
             </resource>
         </resources>
-        <plugins>
+        <plugins>            
+            <plugin>
+                <!-- this plugin checks the license files in the source files, the configuration is in the parent pom -->
+                <groupId>com.mycila.maven-license-plugin</groupId>
+                <artifactId>maven-license-plugin</artifactId>
+                <version>1.9.0</version> 
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -55,7 +68,7 @@
                 <configuration>
                     <entries>
                         <entry>
-                            <path>${basedir}/src/main</path>
+                            <path>${basedir}/src</path>
                             <!-- this will populate "plugin.version.revision" -->
                             <prefix>plugin.version</prefix>
                         </entry>
