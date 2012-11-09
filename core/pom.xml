@@ -97,18 +97,4 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-    
-    <!-- TODO: If we make a parent pom for the plugins, move this distribution management over to the parent -->
-    
-    <distributionManagement>
-        <snapshotRepository>
-            <id>MPI-Snapshots</id>
-            <url>https://lux15.mpi.nl/nexus/content/repositories/MPI-Snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>MPI</id>
-            <name>MPI Repository</name>
-            <url>https://lux15.mpi.nl/nexus/content/repositories/MPI</url>
-        </repository>
-    </distributionManagement>
 </project>
