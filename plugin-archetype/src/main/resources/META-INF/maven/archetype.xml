@@ -1,9 +1,9 @@
 <archetype>
-  <id>language-archive-plugin</id>
-  <sources>
-    <source>src/main/java/App.java</source>
-  </sources>
-  <testSources>
-    <source>src/test/java/AppTest.java</source>
-  </testSources>
+    <id>language-archive-plugin</id>
+    <sources>
+        <source>src/main/java/HelloWorldPlugin.java</source>
+    </sources>
+    <testSources>
+        <source>src/test/java/HelloWorldPluginTest.java</source>
+    </testSources>
 </archetype>
