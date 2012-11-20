@@ -7,7 +7,7 @@
     <!--    Either use the snapshot version of manually enter the current build number. 
     The build number is only required when depending on the output in other projects or building to the server.-->
     <!--<version>${plugin.majorVersion}.${plugin.minorVersion}-${plugin.branch}-SNAPSHOT</version>-->
-    <version>${plugin.majorVersion}.${plugin.minorVersion}.33990-${plugin.branch}</version>
+    <version>${plugin.majorVersion}.${plugin.minorVersion}.34174-${plugin.branch}</version>
     <packaging>jar</packaging>
 
     <name>pluginloader</name>
@@ -50,7 +50,7 @@
                 <configuration>
                     <entries>
                         <entry>
-                            <path>${basedir}/src/main</path>
+                            <path>${basedir}/src</path>
                             <!-- this will populate "plugin.version.revision" -->
                             <prefix>plugin.version</prefix>
                         </entry>
@@ -75,7 +75,7 @@
         <dependency>
             <groupId>nl.mpi</groupId>
             <artifactId>plugins-core</artifactId>
-            <version>0.0.33656-pretesting</version>
+            <version>0.0.34174-stable</version>
         </dependency>
 <!--        <dependency>
             <groupId>nl.mpi</groupId>
