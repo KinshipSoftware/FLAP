@@ -4,7 +4,7 @@
     <properties>
         <output.directory>${project.build.directory}</output.directory>
         <output.jarname>${project.build.finalName}</output.jarname>
-        <plugin.majorVersion>0</plugin.majorVersion>
+        <plugin.majorVersion>1</plugin.majorVersion>
         <plugin.minorVersion>0</plugin.minorVersion>
         <plugin.branch>stable</plugin.branch>
     </properties>

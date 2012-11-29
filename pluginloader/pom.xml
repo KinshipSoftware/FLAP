@@ -61,8 +61,8 @@
     </build>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <plugin.majorVersion>0</plugin.majorVersion>
-        <plugin.minorVersion>1</plugin.minorVersion>
+        <plugin.majorVersion>1</plugin.majorVersion>
+        <plugin.minorVersion>0</plugin.minorVersion>
         <plugin.branch>stable</plugin.branch>
     </properties>
     <dependencies>
@@ -75,7 +75,7 @@
         <dependency>
             <groupId>nl.mpi</groupId>
             <artifactId>plugins-core</artifactId>
-            <version>0.0.34174-stable</version>
+            <version>1.0.34174-stable</version>
         </dependency>
         <!--        <dependency>
             <groupId>nl.mpi</groupId>
