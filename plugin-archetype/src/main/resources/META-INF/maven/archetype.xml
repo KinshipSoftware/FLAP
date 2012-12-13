@@ -4,8 +4,8 @@
         <source>src/main/java/plugin/HelloWorldPlugin.java</source>
     </sources>
     <resources>
-        <source>src/main/resources/readme.txt</source>
-        <source>src/main/resources/META-INF/services/nl.mpi.kinnate.plugin.BasePlugin</source>
+        <resource>src/main/resources/readme.txt</resource>
+        <resource>src/main/resources/META-INF/services/nl.mpi.kinnate.plugin.BasePlugin</resource>
     </resources>
     <testSources>
         <source>src/test/java/plugin/ApplicationSample.java</source>
