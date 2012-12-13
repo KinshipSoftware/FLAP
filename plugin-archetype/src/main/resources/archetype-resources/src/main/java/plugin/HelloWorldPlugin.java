@@ -20,7 +20,7 @@ package ${packageName}.plugin;
 import nl.mpi.kinnate.plugin.BasePlugin;
 
 /**
- * Hello world plugin!
+ * Hello world plugin
  *
  */
 public class HelloWorldPlugin implements BasePlugin {
@@ -28,11 +28,11 @@ public class HelloWorldPlugin implements BasePlugin {
     boolean isActivated = false;
 
     public String getName() {
-        return "Hello World Plugin";
+        return "Hello World Plugin (${artifactId})";
     }
 
     public String getDescription() {
-        return "A Sample Plugin";
+        return "A Sample Plugin (${groupId} ${artifactId} ${version})";
     }
 
     public int getBuildVersionNumber() {
