@@ -13,6 +13,7 @@
         <module>core</module>
         <module>pluginloader</module>
         <module>sampleplugins</module>
+        <module>plugin-archetype</module>
     </modules>
     
     <!--    <scm>
