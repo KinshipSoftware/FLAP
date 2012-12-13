@@ -32,7 +32,7 @@ public class HelloWorldPlugin implements BasePlugin {
     }
 
     public String getDescription() {
-        return "A Sample Plugin (${groupId} ${artifactId} ${version})";
+        return "A Sample Plugin\n${groupId}\n${artifactId}\n${version}";
     }
 
     public int getBuildVersionNumber() {

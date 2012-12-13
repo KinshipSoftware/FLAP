@@ -2,6 +2,7 @@
     <id>language-archive-plugin</id>
     <sources>
         <source>src/main/java/plugin/HelloWorldPlugin.java</source>
+        <source>src/main/java/plugin/HelloWorldActivatablePlugin.java</source>        
     </sources>
     <resources>
         <resource>src/main/resources/readme.txt</resource>

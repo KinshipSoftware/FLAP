@@ -32,11 +32,11 @@ public class HelloWorldActivatablePlugin implements BasePlugin, PluginSettings, 
     boolean isActivated = false;
 
     public String getName() {
-        return "Sample Activate Plugin Name ${artifactId}";
+        return "Sample Activate Plugin Name (${artifactId})";
     }
 
     public String getDescription() {
-        return "Sample Activate Plugin Description String (${groupId} ${artifactId} ${version})";
+        return "Sample Activate Plugin Description String\n${groupId}\n${artifactId}\n${version}";
     }
 
     public int getBuildVersionNumber() {
