@@ -1,4 +1,4 @@
-package $nl.mpi;
+package ${packageName}.plugin;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
