@@ -4,6 +4,64 @@
     <groupId>${groupId}</groupId>
     <artifactId>${artifactId}</artifactId>
     <version>${version}</version>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <plugin.majorVersion>0</plugin.majorVersion>
+        <plugin.minorVersion>1</plugin.minorVersion>
+        <plugin.branch>pretesting</plugin.branch>
+        <netbeans.hint.license>gpl20</netbeans.hint.license>
+        <plugin.license.copyrightYear>2012</plugin.license.copyrightYear>
+    </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.mycila.maven-license-plugin</groupId>
+                <artifactId>maven-license-plugin</artifactId>
+                <version>1.9.0</version> 
+                <configuration>
+                    <header>${project.basedir}/license-header.txt</header>
+                    <strictCheck>false</strictCheck>
+                    <properties>
+                        <year>${plugin.license.copyrightYear}</year>
+                        <organization>${project.organization.name}</organization>
+                    </properties>
+                    <mapping>
+                        <svg>XML_STYLE</svg>
+                        <imdi>XML_STYLE</imdi>
+                        <cmdi>XML_STYLE</cmdi>
+                    </mapping>
+                    <excludes>
+                        <exclude>**/*.txt</exclude>
+                        <exclude>**/*.icns</exclude>
+                        <exclude>**/*.php</exclude>
+                        <exclude>installer/**</exclude>
+                        <exclude>**/nbactions.xml</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>            
+            <plugin>
+                <groupId>com.google.code.maven-svn-revision-number-plugin</groupId>
+                <artifactId>maven-svn-revision-number-plugin</artifactId>
+                <version>1.7</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>revision</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <entries>
+                        <entry>
+                            <path>${basedir}/src</path>
+                            <!-- this will populate "plugin.version.revision" -->
+                            <prefix>plugin.version</prefix>
+                        </entry>
+                    </entries>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
     <dependencies>
         <dependency>
             <groupId>nl.mpi</groupId>
