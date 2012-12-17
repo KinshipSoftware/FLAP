@@ -1,2 +1,2 @@
-${package}.plugin.HelloWorldPlugin
-${package}.plugin.HelloWorldActivatablePlugin
+${package}.${artifactId}.HelloWorldPlugin
+${package}.${artifactId}.HelloWorldActivatablePlugin
