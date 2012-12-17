@@ -13,7 +13,11 @@
         <plugin.license.copyrightYear>2012</plugin.license.copyrightYear>
         <maven.build.timestamp.format>EEE MMM dd HH:mm:ss z yyyy</maven.build.timestamp.format><!--"Mon Dec 10 14:37:33 CET 2012"-->
         <plugin.build-date>${maven.build.timestamp}</plugin.build-date>
-    </properties>
+    </properties>    
+    <organization> 
+        <name>Max Planck Institute for Psycholinguistics</name> 
+        <url>http://tla.mpi.nl/tools/tla-tools</url>
+    </organization>
     <build>
         <resources>
             <resource>
@@ -30,11 +34,19 @@
         </resources>
         <plugins>
             <plugin>
+                <!--                                		 
+		    License plugin checks for presence of license header in all source files (with some exceptions, see excludes below).
+		    You can use this plugin to actually insert or fix the license headers by running maven with the following goal:
+
+		    mvn license:format
+
+                    For more info, see <http://mathieu.carbou.free.fr/p/maven-license-plugin/>.
+                -->
                 <groupId>com.mycila.maven-license-plugin</groupId>
                 <artifactId>maven-license-plugin</artifactId>
                 <version>1.9.0</version> 
                 <configuration>
-                    <header>${project.basedir}/license-header.txt</header>
+                    <header>${project.basedir}/src/license-header.txt</header>
                     <strictCheck>false</strictCheck>
                     <properties>
                         <year>${plugin.license.copyrightYear}</year>
@@ -46,14 +58,19 @@
                         <cmdi>XML_STYLE</cmdi>
                     </mapping>
                     <excludes>
+                        <exclude>nbactions.xml</exclude>
+                        <exclude>nb-configuration.xml</exclude>
                         <exclude>**/*.txt</exclude>
-                        <exclude>**/*.icns</exclude>
-                        <exclude>**/*.php</exclude>
-                        <exclude>installer/**</exclude>
-                        <exclude>**/nbactions.xml</exclude>
                     </excludes>
                 </configuration>
-            </plugin>            
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>        
             <plugin>
                 <groupId>com.google.code.maven-svn-revision-number-plugin</groupId>
                 <artifactId>maven-svn-revision-number-plugin</artifactId>
