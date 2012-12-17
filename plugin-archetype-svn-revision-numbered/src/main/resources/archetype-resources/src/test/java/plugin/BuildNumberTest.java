@@ -15,7 +15,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package nl.mpi.pluginsamples;
+package ${package}.plugin;
 
 import junit.framework.TestCase;
 import nl.mpi.arbil.plugin.PluginException;
@@ -44,7 +44,7 @@ public class BuildNumberTest extends TestCase {
     public class AbstractBasePluginImpl extends AbstractBasePlugin {
 
         public AbstractBasePluginImpl() throws PluginException {
-            super("test name", "test description", "nl.mpi.pluginsamples");
+            super("test name", "test description", "${groupId}.${artifactId}");
         }
     }
 }
