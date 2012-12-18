@@ -36,7 +36,7 @@ public class HelloWorldActivatablePlugin implements BasePlugin, PluginSettings, 
     }
 
     public String getDescription() {
-        return "Sample Activate Plugin Description String\n${groupId}\n${artifactId}\n${version}";
+        return "Sample Activate Plugin Description String\n${groupId}\n${artifactId}";
     }
 
     public int getBuildVersionNumber() {
