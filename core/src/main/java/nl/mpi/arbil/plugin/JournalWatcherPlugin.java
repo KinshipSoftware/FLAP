@@ -24,6 +24,7 @@ package nl.mpi.arbil.plugin;
  */
 public interface JournalWatcherPlugin {
 
-    public void setPluginJournal(PluginJournal pluginJournal) throws PluginException;
+    public void initJournalWatcher(PluginJournal pluginJournal) throws PluginException;
 
+    public void journalEvent(long currentJournalSize) throws PluginException;
 }

@@ -33,5 +33,5 @@ public interface PluginJournal {
      */
     public long getChangedFiles(long lastChangeIndex, Set<String> changedURIs) throws PluginException;
 
-    public void addJounalWatcher(Runnable runnableWatcher);
+    public void addJounalWatcher(JournalWatcherPlugin jounalWatcher);
 }
