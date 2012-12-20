@@ -4,8 +4,8 @@
                       http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>nl.mpi</groupId>
-    <artifactId>plugins-parent</artifactId>
-    <name>Plugins Parent</name>
+    <artifactId>plugins-core-parent</artifactId>
+    <name>Plugins Core Parent</name>
     <packaging>pom</packaging>
     <version>1.0</version>
     <description>Parent pom for the plugins</description>
@@ -39,7 +39,7 @@
                 <artifactId>maven-license-plugin</artifactId>
                 <version>1.9.0</version> 
                 <configuration>
-                    <header>${project.parent.basedir}/license-header.txt</header>
+                    <header>${project.basedir}/license-header.txt</header>
                     <strictCheck>false</strictCheck>
                     <properties>
                         <year>${plugin.license.copyrightYear}</year>
