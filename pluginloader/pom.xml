@@ -87,7 +87,7 @@
         <dependency>
             <groupId>nl.mpi</groupId>
             <artifactId>plugins-core</artifactId>
-            <version>0.1.34211-pretesting</version>
+            <version>0.1.34882-pretesting</version>
         </dependency>
         <!--        <dependency>
             <groupId>nl.mpi</groupId>
