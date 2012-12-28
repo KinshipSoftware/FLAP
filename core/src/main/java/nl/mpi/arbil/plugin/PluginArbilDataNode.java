@@ -25,7 +25,7 @@ import javax.swing.ImageIcon;
  * @author Peter Withers <br>
  */
 public interface PluginArbilDataNode {
-
+    
     /**
      * @return The icon for this node.
      */
