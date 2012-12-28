@@ -17,19 +17,19 @@
  */
 package nl.mpi.arbil.plugin;
 
-import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlAttribute;
 
 /**
  * Created on : Dec 27, 2012, 2:51:24 PM
  *
  * @author Peter Withers <peter.withers@mpi.nl>
  */
-public class AbstractField implements PluginField {
+public abstract class AbstractField implements PluginField {
 
     public AbstractField() {
     }
 
-    @XmlElement(name = "KeyName")
+    @XmlAttribute(name = "KeyName")
     public String getKeyName() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
@@ -38,7 +38,7 @@ public class AbstractField implements PluginField {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @XmlElement(name = "FieldValue")
+    @XmlAttribute(name = "FieldValue")
     public String getFieldValue() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
@@ -54,4 +54,7 @@ public class AbstractField implements PluginField {
     public boolean setKeyName(String keyNameLocal, boolean updateUI, boolean excludeFromUndoHistory) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    @XmlAttribute(name = "FullXmlPath")
+    public abstract String getFullXmlPath();
 }

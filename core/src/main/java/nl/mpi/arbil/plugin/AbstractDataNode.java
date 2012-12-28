@@ -38,10 +38,10 @@ public abstract class AbstractDataNode implements PluginArbilDataNode {
 
     public abstract ImageIcon getIcon();
 
-//    @XmlElement(name = "Field")
-//    private ArrayList<FieldArray> getFieldArray() {
-//        throw new NotImplementedException();
-//    }
+    @XmlElement(name = "FieldGroup")
+    public List<FieldArray> getFieldArray() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 //    private ArrayList<FieldArray> getFieldArray() {
 //        ArrayList<FieldArray> fieldArrays = new ArrayList<FieldArray>();
 //        for (PluginField[] currentEntry : getFields().entrySet()) {
@@ -49,10 +49,10 @@ public abstract class AbstractDataNode implements PluginArbilDataNode {
 //        }
 //        return fieldArrays;
 //    }
-    @XmlElement(name = "Field")
-    public List<AbstractField[]> getPluginFields() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+//    @XmlElement(name = "Field")
+//    public List<AbstractField[]> getPluginFields() {
+//        throw new UnsupportedOperationException("Not supported yet.");
+//    }
 //    @Override
 //    private ArrayList<FieldArray> getFieldArray() {
 //        ArrayList<FieldArray> fieldArrays = new ArrayList<FieldArray>();
