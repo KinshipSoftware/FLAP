@@ -30,30 +30,18 @@ public abstract class AbstractField implements PluginField {
     }
 
     @XmlAttribute(name = "KeyName")
-    public String getKeyName() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+    public abstract String getKeyName();
 
-    public String getLanguageId() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+    public abstract String getLanguageId();
 
     @XmlAttribute(name = "FieldValue")
-    public String getFieldValue() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+    public abstract String getFieldValue();
 
-    public void setFieldValue(String fieldValueToBe, boolean updateUI, boolean excludeFromUndoHistory) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+    public abstract void setFieldValue(String fieldValueToBe, boolean updateUI, boolean excludeFromUndoHistory);
 
-    public void setLanguageId(String languageIdLocal, boolean updateUI, boolean excludeFromUndoHistory) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+    public abstract void setLanguageId(String languageIdLocal, boolean updateUI, boolean excludeFromUndoHistory);
 
-    public boolean setKeyName(String keyNameLocal, boolean updateUI, boolean excludeFromUndoHistory) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+    public abstract boolean setKeyName(String keyNameLocal, boolean updateUI, boolean excludeFromUndoHistory);
 
     @XmlAttribute(name = "FullXmlPath")
     public abstract String getFullXmlPath();

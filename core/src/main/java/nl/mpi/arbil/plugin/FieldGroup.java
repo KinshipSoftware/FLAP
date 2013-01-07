@@ -17,6 +17,7 @@
  */
 package nl.mpi.arbil.plugin;
 
+import java.util.List;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 
@@ -30,12 +31,12 @@ public class FieldGroup {
     @XmlAttribute(name = "Label")
     public String fieldName;
     @XmlElement(name = "FieldData")
-    public AbstractField[] fieldArray;
+    public List<AbstractField> fieldArray;
 
     private FieldGroup() {
     }
 
-    public FieldGroup(String feildName, AbstractField[] fieldArray) {
+    public FieldGroup(String feildName, List<AbstractField> fieldArray) {
         this.fieldName = feildName;
         this.fieldArray = fieldArray;
     }

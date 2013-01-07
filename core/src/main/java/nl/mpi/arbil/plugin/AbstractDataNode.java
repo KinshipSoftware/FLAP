@@ -17,11 +17,13 @@
  */
 package nl.mpi.arbil.plugin;
 
+import java.net.URI;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * Created on : Dec 27, 2012, 12:26:17 PM
@@ -36,35 +38,37 @@ public abstract class AbstractDataNode implements PluginArbilDataNode {
         return this.toString();
     }
 
+    @XmlAttribute(name = "NodeURI")
+    public abstract URI getURI();
+
+    @XmlTransient
     public abstract ImageIcon getIcon();
 
     @XmlElement(name = "FieldGroup")
-    public List<FieldArray> getFieldArray() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+    public abstract List<FieldGroup> getFieldGroups();
 //    private ArrayList<FieldArray> getFieldArray() {
 //        ArrayList<FieldArray> fieldArrays = new ArrayList<FieldArray>();
 //        for (PluginField[] currentEntry : getFields().entrySet()) {
-//            fieldArrays.add(new FieldArray(currentEntry.getKey(), currentEntry.getValue()));
+//            fieldArrays.add(new FieldGroup(currentEntry.getKey(), currentEntry.getValue()));
 //        }
 //        return fieldArrays;
 //    }
-//    @XmlElement(name = "Field")
-//    public List<AbstractField[]> getPluginFields() {
-//        throw new UnsupportedOperationException("Not supported yet.");
-//    }
+//    
 //    @Override
-//    private ArrayList<FieldArray> getFieldArray() {
-//        ArrayList<FieldArray> fieldArrays = new ArrayList<FieldArray>();
-//        for (Map.Entry<String, ArbilField[]> currentEntry : getFields().entrySet()) {
-//            fieldArrays.add(new FieldArray(currentEntry.getKey(), currentEntry.getValue()));
+//    public List<AbstractField[]> getPluginFields() {
+//        List<AbstractField[]> fieldArrays = new ArrayList<AbstractField[]>();
+//        for (AbstractField[] currentField : getFieldsSorted()) {
+//            AbstractField[] copiedField = new AbstractField[currentField.length];
+////            for (AbstractField currentField){
+//    }
+//            fieldArrays.add(copiedField);
 //        }
 //        return fieldArrays;
 //    }
+
 //    public abstract Hashtable<String, PluginField[]> getFields();
     // todo: we could return a xml ref here
 //    @XmlElementWrapper(name = "DataNodeChildWrapper")
-
     @XmlElement(name = "DataNode", type = AbstractDataNode.class)
     public abstract AbstractDataNode[] getChildArray();
 }
