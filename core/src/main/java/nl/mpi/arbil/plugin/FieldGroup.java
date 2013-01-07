@@ -25,17 +25,17 @@ import javax.xml.bind.annotation.XmlElement;
  *
  * @author Peter Withers <peter.withers@mpi.nl>
  */
-public class FieldArray {
+public class FieldGroup {
 
     @XmlAttribute(name = "Label")
     public String fieldName;
     @XmlElement(name = "FieldData")
     public AbstractField[] fieldArray;
 
-    private FieldArray() {
+    private FieldGroup() {
     }
 
-    public FieldArray(String feildName, AbstractField[] fieldArray) {
+    public FieldGroup(String feildName, AbstractField[] fieldArray) {
         this.fieldName = feildName;
         this.fieldArray = fieldArray;
     }
