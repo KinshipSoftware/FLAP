@@ -29,7 +29,7 @@ import nl.mpi.pluginloader.PluginSettings;
  */
 public class HelloWorldActivatablePlugin implements BasePlugin, PluginSettings, ActivatablePlugin {
 
-    boolean isActivated = false;
+    private boolean activated = false;
 
     public String getName() {
         return "Sample Activate Plugin Name (${artifactId})";
@@ -52,14 +52,14 @@ public class HelloWorldActivatablePlugin implements BasePlugin, PluginSettings, 
     }
 
     public void activatePlugin(PluginDialogHandler dialogHandler, PluginSessionStorage sessionStorage) throws PluginException {
-        isActivated = true;
+        activated = true;
     }
 
     public void deactivatePlugin(PluginDialogHandler dialogHandler, PluginSessionStorage sessionStorage) throws PluginException {
-        isActivated = false;
+        activated = false;
     }
 
     public boolean getIsActivated() throws PluginException {
-        return isActivated;
+        return activated;
     }
 }

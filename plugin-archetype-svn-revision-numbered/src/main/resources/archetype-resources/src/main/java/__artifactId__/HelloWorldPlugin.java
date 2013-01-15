@@ -25,8 +25,6 @@ import nl.mpi.kinnate.plugin.BasePlugin;
  */
 public class HelloWorldPlugin implements BasePlugin {
 
-    boolean isActivated = false;
-
     public String getName() {
         return "Hello World Plugin (${artifactId})";
     }
