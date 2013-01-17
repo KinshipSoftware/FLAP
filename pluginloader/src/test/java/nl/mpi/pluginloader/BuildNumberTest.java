@@ -32,7 +32,6 @@ public class BuildNumberTest extends TestCase {
      * Test the build number against the maven project version.
      */
     public void testBuildVersion() {
-        System.out.println("testBuildVersion");
         try {
             AbstractBasePlugin abstractBasePlugin = new AbstractBasePluginImpl();
             assertTrue(abstractBasePlugin.isMavenVersionCorrect());

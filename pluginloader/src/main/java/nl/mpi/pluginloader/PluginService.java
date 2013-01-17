@@ -23,6 +23,8 @@ import java.util.Iterator;
 import java.util.ServiceConfigurationError;
 import java.util.ServiceLoader;
 import nl.mpi.arbil.plugin.BasePlugin;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Created on : Dec 23, 2011, 10:20:52 AM
@@ -31,11 +33,14 @@ import nl.mpi.arbil.plugin.BasePlugin;
  */
 public class PluginService {
 
+    private final static Logger logger = LoggerFactory.getLogger(PluginService.class);
     private ServiceLoader<BasePlugin> serviceLoader;
 
     public PluginService(URL[] pluginJarUrls) {
-	for (URL inputURL : pluginJarUrls) {
-	    System.out.println("Plugin URL: " + inputURL.toString());
+	if (logger.isDebugEnabled()) {
+	    for (URL inputURL : pluginJarUrls) {
+		logger.debug("Plugin URL: " + inputURL.toString());
+	    }
 	}
 	serviceLoader = ServiceLoader.load(BasePlugin.class, URLClassLoader.newInstance(pluginJarUrls, this.getClass().getClassLoader()));
     }

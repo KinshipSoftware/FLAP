@@ -36,7 +36,7 @@ import nl.mpi.pluginloader.ui.PluginMenu;
  * @author Peter Withers
  * @author Twan Goosen <twan.goosen@mpi.nl>
  */
-public class PluginMenuTestRunner {
+public class PluginMenuTestRunner extends PluginTestRunner {
 
     public static void main(String[] args) {
 	JFrame jFrame = new JFrame();
@@ -82,7 +82,7 @@ public class PluginMenuTestRunner {
 	    }
 	};
 	try {
-	    jMenuBar.add(new PluginMenu(new PluginService(new URL[]{new File(System.getProperty("user.home"), "TLA-Plugins").toURI().toURL(), new URL("file:///Users/petwit2/TLA-Plugins/")}), pluginManager, false));
+	    jMenuBar.add(new PluginMenu(new PluginService(new URL[]{new File(System.getProperty("user.home"), "TLA-Plugins").toURI().toURL(), new URL("file:///Users/twagoo/svn/PluginsAndModules/framework/trunk/sampleplugins/target/sampleplugins-1.1-pretesting-SNAPSHOT.jar")}), pluginManager, false));
 	} catch (MalformedURLException exception) {
 	    jMenuBar.add(new JLabel(exception.getMessage()));
 	}

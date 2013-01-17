@@ -31,7 +31,7 @@ import nl.mpi.arbil.plugin.PluginException;
  * @author Peter Withers
  * @author Twan Goosen <twan.goosen@mpi.nl>
  */
-public class PluginServiceTestRunner {
+public class PluginServiceTestRunner extends PluginTestRunner {
 
     public static void main(String[] args) {
 	try {
@@ -52,7 +52,7 @@ public class PluginServiceTestRunner {
 		System.out.println("Name: " + d.getName());
 	    }
 	} catch (ServiceConfigurationError serviceError) {
-	    serviceError.printStackTrace();
+	    serviceError.printStackTrace(System.out);
 	}
     }
 }
