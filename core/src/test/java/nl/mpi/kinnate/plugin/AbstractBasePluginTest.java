@@ -17,6 +17,7 @@
  */
 package nl.mpi.kinnate.plugin;
 
+import nl.mpi.arbil.plugin.AbstractBasePlugin;
 import junit.framework.TestCase;
 import nl.mpi.arbil.plugin.PluginException;
 

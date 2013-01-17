@@ -15,16 +15,22 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package nl.mpi.pluginloader;
-
-import javax.xml.bind.annotation.XmlRootElement;
+package nl.mpi.arbil.plugin;
 
 /**
- * Document : PluginSettings
- * Created on : Dec 30, 2011, 3:04:27 PM
- * Author : Peter Withers
+ * Document : KinOathPlugin Created on : Dec 20, 2011, 2:49:57 PM
+ *
+ * @author Peter Withers
  */
-@XmlRootElement(name = "PluginSettings")
-public interface PluginSettings {
-// This class should be used to store run time settings for the plugin and should be annotated for jaxb
+public interface BasePlugin {
+
+    public String getName();
+
+    public int getMajorVersionNumber();
+
+    public int getMinorVersionNumber();
+
+    public int getBuildVersionNumber();
+
+    public String getDescription();
 }

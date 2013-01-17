@@ -15,11 +15,10 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package nl.mpi.kinnate.plugin;
+package nl.mpi.arbil.plugin;
 
 import java.io.IOException;
 import java.util.Properties;
-import nl.mpi.arbil.plugin.PluginException;
 
 /**
  * Document : AbstractBasePlugin Created on : Sep 27, 2012, 11:30
