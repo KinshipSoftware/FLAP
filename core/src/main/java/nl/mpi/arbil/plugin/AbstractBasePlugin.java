@@ -19,6 +19,8 @@ package nl.mpi.arbil.plugin;
 
 import java.io.IOException;
 import java.util.Properties;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Document : AbstractBasePlugin Created on : Sep 27, 2012, 11:30
@@ -35,6 +37,8 @@ public abstract class AbstractBasePlugin implements BasePlugin {
     final private String compileDateString;
     final private String artifactVersionString;
     final private String lastCommitDate;
+    
+    private final static Logger logger = LoggerFactory.getLogger(AbstractBasePlugin.class);
 
     public AbstractBasePlugin(String nameString, String descriptionString, String packageString) throws PluginException {
         this.nameString = nameString;
@@ -94,11 +98,11 @@ public abstract class AbstractBasePlugin implements BasePlugin {
         // either the correct build number or a snapshot version are valid
         String errorMessage = "The maven version does not match either the snapshot nor the current svn build number.\n The pom.xml must be updated, please use either the correct build number or a snapshot version.";
         String svnVersion = getMajorVersionNumber() + "." + getMinorVersionNumber() + "." + getBuildVersionNumber() + "-";
-        System.out.println("svnVersion: " + svnVersion + " ... ");
+        logger.debug("svnVersion: " + svnVersion + " ... ");
         String snapshotVersion = getMajorVersionNumber() + "." + getMinorVersionNumber() + "-";
-        System.out.println("snapshotVersion: " + snapshotVersion + " ... " + "-SNAPSHOT");
+        logger.debug("snapshotVersion: " + snapshotVersion + " ... " + "-SNAPSHOT");
         String mavenBuildVersion = getArtifactVersion();
-        System.out.println("mavenBuildVersion: " + mavenBuildVersion);
+        logger.debug("mavenBuildVersion: " + mavenBuildVersion);
         if (mavenBuildVersion.endsWith("-SNAPSHOT")) {
             if (mavenBuildVersion.startsWith(snapshotVersion)) {
                 return true;
