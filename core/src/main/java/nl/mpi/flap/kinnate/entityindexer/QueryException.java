@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright (C) 2012 Max Planck Institute for Psycholinguistics
  *
  * This program is free software; you can redistribute it and/or
@@ -15,16 +15,16 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package nl.mpi.arbil.plugin;
+package nl.mpi.flap.kinnate.entityindexer;
 
 /**
- * Created on : Nov 7, 2012, 4:06:27 PM
- *
- * @author Peter Withers <peter.withers@mpi.nl>
+ * Document : QueryException
+ * Created on : Jul 4, 2012, 4:23:37 PM
+ * Author : Peter Withers
  */
-public interface PluginWidgetFactory {
+public class QueryException extends Exception {
 
-    public PluginArbilTable createTable(PluginArbilTableModel pluginArbilTableModel, String tableName);
-
-    public PluginArbilTableModel createTableModel();
+    public QueryException(String message) {
+        super(message);
+    }
 }

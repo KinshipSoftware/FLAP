@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (C) 2012 Max Planck Institute for Psycholinguistics
  *
  * This program is free software; you can redistribute it and/or
@@ -15,13 +15,16 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package nl.mpi.arbil.plugin;
+package nl.mpi.flap.plugin;
 
 /**
- * Created on : Nov 7, 2012, 3:15:10 PM
+ * Created on : Nov 8, 2012, 11:48:33 AM
  *
  * @author Peter Withers <peter.withers@mpi.nl>
  */
-public interface PluginDataNodeContainer {
+public class WrongNodeTypeException extends Exception {
 
+    public WrongNodeTypeException(String string) {
+        super(string);
+    }
 }

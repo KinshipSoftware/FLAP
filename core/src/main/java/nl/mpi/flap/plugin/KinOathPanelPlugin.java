@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright (C) 2012 Max Planck Institute for Psycholinguistics
  *
  * This program is free software; you can redistribute it and/or
@@ -15,23 +15,16 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package nl.mpi.arbil.plugin;
+package nl.mpi.flap.plugin;
 
-import java.util.Set;
+import javax.swing.JScrollPane;
 
 /**
- * Created on : Dec 18, 2012, 2:00:21 PM
+ * Document : KinOathPanelPlugin Created on : Dec 20, 2011, 2:49:57 PM
  *
- * @author Peter Withers <peter.withers@mpi.nl>
+ * @author Peter Withers
  */
-public interface PluginJournal {
+public interface KinOathPanelPlugin {
 
-    /**
-     * @return the list of changed files since the journal was at the point
-     * defined by X journal file for the current project that is used to record
-     * all changes
-     */
-    public long getChangedFiles(long lastChangeIndex, Set<String> changedURIs) throws PluginException;
-
-    public void addJounalWatcher(JournalWatcherPlugin jounalWatcher);
+    public JScrollPane getUiPanel(PluginDialogHandler dialogHandler, PluginSessionStorage sessionStorage, PluginBugCatcher bugCatcher) throws PluginException;
 }

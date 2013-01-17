@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright (C) 2012 Max Planck Institute for Psycholinguistics
  *
  * This program is free software; you can redistribute it and/or
@@ -15,24 +15,22 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package nl.mpi.arbil.plugin;
+package nl.mpi.flap.plugin;
 
 /**
- * Created on : Dec 19, 2012, 11:54:36 AM
+ * Document : KinOathPlugin Created on : Dec 20, 2011, 2:49:57 PM
  *
- * @author Peter Withers <peter.withers@mpi.nl>
+ * @author Peter Withers
  */
-public interface PluginField {
+public interface BasePlugin {
 
-    public String getKeyName();
+    public String getName();
 
-    public String getLanguageId();
+    public int getMajorVersionNumber();
 
-    public String getFieldValue();
+    public int getMinorVersionNumber();
 
-    public void setFieldValue(String fieldValueToBe, boolean updateUI, boolean excludeFromUndoHistory);
+    public int getBuildVersionNumber();
 
-    public void setLanguageId(String languageIdLocal, boolean updateUI, boolean excludeFromUndoHistory);
-
-    public boolean setKeyName(String keyNameLocal, boolean updateUI, boolean excludeFromUndoHistory);
+    public String getDescription();
 }

@@ -15,12 +15,24 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package nl.mpi.arbil.plugin;
+package nl.mpi.flap.plugin;
 
 /**
- * Created on : Nov 7, 2012, 3:42:54 PM
+ * Created on : Dec 19, 2012, 11:54:36 AM
  *
  * @author Peter Withers <peter.withers@mpi.nl>
  */
-public interface PluginArbilTable {
+public interface PluginField {
+
+    public String getKeyName();
+
+    public String getLanguageId();
+
+    public String getFieldValue();
+
+    public void setFieldValue(String fieldValueToBe, boolean updateUI, boolean excludeFromUndoHistory);
+
+    public void setLanguageId(String languageIdLocal, boolean updateUI, boolean excludeFromUndoHistory);
+
+    public boolean setKeyName(String keyNameLocal, boolean updateUI, boolean excludeFromUndoHistory);
 }

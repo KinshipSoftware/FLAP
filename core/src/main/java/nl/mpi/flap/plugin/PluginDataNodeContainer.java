@@ -15,22 +15,13 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package nl.mpi.arbil.plugin;
+package nl.mpi.flap.plugin;
 
 /**
- * Document : KinOathPlugin Created on : Dec 20, 2011, 2:49:57 PM
+ * Created on : Nov 7, 2012, 3:15:10 PM
  *
- * @author Peter Withers
+ * @author Peter Withers <peter.withers@mpi.nl>
  */
-public interface BasePlugin {
+public interface PluginDataNodeContainer {
 
-    public String getName();
-
-    public int getMajorVersionNumber();
-
-    public int getMinorVersionNumber();
-
-    public int getBuildVersionNumber();
-
-    public String getDescription();
 }

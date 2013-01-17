@@ -15,34 +15,16 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package nl.mpi.arbil.plugin;
-
-import javax.xml.bind.annotation.XmlAttribute;
+package nl.mpi.flap.plugin;
 
 /**
- * Created on : Dec 27, 2012, 2:51:24 PM
+ * Created on : Nov 7, 2012, 4:06:27 PM
  *
  * @author Peter Withers <peter.withers@mpi.nl>
  */
-public abstract class AbstractField implements PluginField {
+public interface PluginWidgetFactory {
 
-    public AbstractField() {
-    }
+    public PluginArbilTable createTable(PluginArbilTableModel pluginArbilTableModel, String tableName);
 
-    @XmlAttribute(name = "KeyName")
-    public abstract String getKeyName();
-
-    public abstract String getLanguageId();
-
-    @XmlAttribute(name = "FieldValue")
-    public abstract String getFieldValue();
-
-    public abstract void setFieldValue(String fieldValueToBe, boolean updateUI, boolean excludeFromUndoHistory);
-
-    public abstract void setLanguageId(String languageIdLocal, boolean updateUI, boolean excludeFromUndoHistory);
-
-    public abstract boolean setKeyName(String keyNameLocal, boolean updateUI, boolean excludeFromUndoHistory);
-
-    @XmlAttribute(name = "FullXmlPath")
-    public abstract String getFullXmlPath();
+    public PluginArbilTableModel createTableModel();
 }

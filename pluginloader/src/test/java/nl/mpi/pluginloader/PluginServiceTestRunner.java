@@ -22,8 +22,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Iterator;
 import java.util.ServiceConfigurationError;
-import nl.mpi.arbil.plugin.BasePlugin;
-import nl.mpi.arbil.plugin.PluginException;
+import nl.mpi.flap.plugin.BasePlugin;
+import nl.mpi.flap.plugin.PluginException;
 
 /**
  * Created on : Aug 13, 2012, 3:47:55 PM
@@ -35,7 +35,7 @@ public class PluginServiceTestRunner extends PluginTestRunner {
 
     public static void main(String[] args) {
 	try {
-	    final PluginService pluginService = new PluginService(new URL[]{new File(System.getProperty("user.home"), "TLA-Plugins").toURI().toURL(), new URL("file:///Users/petwit2/TLA-Plugins/sampleplugins-0.0.33986-pretesting.jar"), new URL("file:///Users/petwit2/TLA-Plugins/kinnate-plugins-export-0.0.33986-pretesting.jar")});
+	    final PluginService pluginService = new PluginService(new URL[]{new File(System.getProperty("user.home"), "TLA-Plugins").toURI().toURL(), new URL("file:///Users/twagoo/svn/PluginsAndModules/framework/trunk/sampleplugins/target/sampleplugins-1.1-pretesting-SNAPSHOT.jar")});
 	    listPlugins(pluginService);
 	} catch (MalformedURLException exception) {
 	    System.out.println(exception.getMessage());

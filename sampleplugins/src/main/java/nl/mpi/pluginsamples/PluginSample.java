@@ -17,8 +17,8 @@
  */
 package nl.mpi.pluginsamples;
 
-import nl.mpi.arbil.plugin.BasePlugin;
-import nl.mpi.arbil.plugin.PluginSettings;
+import nl.mpi.flap.plugin.BasePlugin;
+import nl.mpi.flap.plugin.PluginSettings;
 
 
 /**

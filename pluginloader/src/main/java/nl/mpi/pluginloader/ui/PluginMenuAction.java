@@ -20,7 +20,7 @@ package nl.mpi.pluginloader.ui;
 import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.JCheckBoxMenuItem;
-import nl.mpi.arbil.plugin.BasePlugin;
+import nl.mpi.flap.plugin.BasePlugin;
 import nl.mpi.pluginloader.PluginManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

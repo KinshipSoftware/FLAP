@@ -8,27 +8,31 @@
  *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
-package nl.mpi.kinnate.plugin;
+package nl.mpi.flap.plugin;
 
 /**
- * Created on Oct 20, 2012, 21:55:21 <br>
+ * Document : PluginException <br> Created on Aug 15, 2012, 4:07:54 PM <br>
  *
  * @author Peter Withers <br>
  */
-public interface PluginGraphSource {
-    /*    
-     * example usages of this plugin type would be:
-     * an R graph provider, 
-     * a prolog provider,
-     * a plugin graph provider that allows the setting of each plugins parameters and defining links between each plugin in the work flow. the entities returned from this would implement ArbilNode and the fields would each be a setting 
-     */
+public class PluginException extends Exception {
 
-//    public EntityData[] getEntities();
+    public PluginException(String string) {
+	super(string);
+    }
+
+    public PluginException(Throwable cause) {
+	super(cause);
+    }
+
+    public PluginException(String message, Throwable cause) {
+	super(message, cause);
+    }
 }

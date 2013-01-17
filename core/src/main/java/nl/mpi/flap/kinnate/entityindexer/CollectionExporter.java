@@ -15,16 +15,16 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package nl.mpi.arbil.plugin;
-
-import javax.swing.JScrollPane;
+package nl.mpi.flap.kinnate.entityindexer;
 
 /**
- * Document : KinOathPanelPlugin Created on : Dec 20, 2011, 2:49:57 PM
- *
- * @author Peter Withers
+ * Document : CollectionExporter
+ * Created on : Jul 4, 2012, 4:21:07 PM
+ * Author : Peter Withers
  */
-public interface KinOathPanelPlugin {
+public interface CollectionExporter {
 
-    public JScrollPane getUiPanel(PluginDialogHandler dialogHandler, PluginSessionStorage sessionStorage, PluginBugCatcher bugCatcher) throws PluginException;
+    public String performExportQuery(String exportQueryString) throws QueryException;
+
+    public String getDatabaseName();
 }

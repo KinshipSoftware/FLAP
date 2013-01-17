@@ -17,7 +17,7 @@
  */
 package nl.mpi.pluginloader;
 
-import nl.mpi.arbil.plugin.BasePlugin;
+import nl.mpi.flap.plugin.BasePlugin;
 
 /**
  * Document : PluginManager

@@ -17,12 +17,12 @@
  */
 package nl.mpi.pluginsamples;
 
-import nl.mpi.arbil.plugin.ActivatablePlugin;
-import nl.mpi.arbil.plugin.BasePlugin;
-import nl.mpi.arbil.plugin.PluginDialogHandler;
-import nl.mpi.arbil.plugin.PluginException;
-import nl.mpi.arbil.plugin.PluginSessionStorage;
-import nl.mpi.arbil.plugin.PluginSettings;
+import nl.mpi.flap.plugin.ActivatablePlugin;
+import nl.mpi.flap.plugin.BasePlugin;
+import nl.mpi.flap.plugin.PluginDialogHandler;
+import nl.mpi.flap.plugin.PluginException;
+import nl.mpi.flap.plugin.PluginSessionStorage;
+import nl.mpi.flap.plugin.PluginSettings;
 
 /**
  * Document : PluginSample Created on : Dec 22, 2011, 3:58:34 PM

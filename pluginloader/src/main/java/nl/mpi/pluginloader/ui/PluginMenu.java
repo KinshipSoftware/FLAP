@@ -22,7 +22,7 @@ import java.util.ServiceConfigurationError;
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
-import nl.mpi.arbil.plugin.BasePlugin;
+import nl.mpi.flap.plugin.BasePlugin;
 import nl.mpi.pluginloader.PluginManager;
 import nl.mpi.pluginloader.PluginService;
 import org.slf4j.Logger;

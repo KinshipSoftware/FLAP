@@ -15,16 +15,20 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package nl.mpi.kinnate.entityindexer;
+package nl.mpi.flap.kinnate.plugin;
 
 /**
- * Document : CollectionExporter
- * Created on : Jul 4, 2012, 4:21:07 PM
- * Author : Peter Withers
+ * Created on Oct 20, 2012, 21:55:21 <br>
+ *
+ * @author Peter Withers <br>
  */
-public interface CollectionExporter {
+public interface PluginGraphSource {
+    /*    
+     * example usages of this plugin type would be:
+     * an R graph provider, 
+     * a prolog provider,
+     * a plugin graph provider that allows the setting of each plugins parameters and defining links between each plugin in the work flow. the entities returned from this would implement ArbilNode and the fields would each be a setting 
+     */
 
-    public String performExportQuery(String exportQueryString) throws QueryException;
-
-    public String getDatabaseName();
+//    public EntityData[] getEntities();
 }

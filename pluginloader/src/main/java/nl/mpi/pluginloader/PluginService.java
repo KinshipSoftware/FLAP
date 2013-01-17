@@ -22,7 +22,7 @@ import java.net.URLClassLoader;
 import java.util.Iterator;
 import java.util.ServiceConfigurationError;
 import java.util.ServiceLoader;
-import nl.mpi.arbil.plugin.BasePlugin;
+import nl.mpi.flap.plugin.BasePlugin;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

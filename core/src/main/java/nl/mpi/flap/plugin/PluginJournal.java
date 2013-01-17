@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (C) 2012 Max Planck Institute for Psycholinguistics
  *
  * This program is free software; you can redistribute it and/or
@@ -15,16 +15,23 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package nl.mpi.arbil.plugin;
+package nl.mpi.flap.plugin;
 
-import javax.xml.bind.annotation.XmlRootElement;
+import java.util.Set;
 
 /**
- * Document : PluginSettings
- * Created on : Dec 30, 2011, 3:04:27 PM
- * Author : Peter Withers
+ * Created on : Dec 18, 2012, 2:00:21 PM
+ *
+ * @author Peter Withers <peter.withers@mpi.nl>
  */
-@XmlRootElement(name = "PluginSettings")
-public interface PluginSettings {
-// This class should be used to store run time settings for the plugin and should be annotated for jaxb
+public interface PluginJournal {
+
+    /**
+     * @return the list of changed files since the journal was at the point
+     * defined by X journal file for the current project that is used to record
+     * all changes
+     */
+    public long getChangedFiles(long lastChangeIndex, Set<String> changedURIs) throws PluginException;
+
+    public void addJounalWatcher(JournalWatcherPlugin jounalWatcher);
 }

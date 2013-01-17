@@ -15,32 +15,31 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package nl.mpi.arbil.plugin;
+package nl.mpi.flap.plugin;
 
 import java.io.File;
+import java.util.Map;
+import javax.swing.JComponent;
 
 /**
- * Document : PluginSessionStorage <br> Created on Aug 15, 2012, 2:10:56 PM <br>
+ * Document : PluginDialogHandler <br> Created on Aug 15, 2012, 1:49:59 PM <br>
  *
  * @author Peter Withers <br>
  */
-public interface PluginSessionStorage {
+public interface PluginDialogHandler {
 
-    /**
-     * @return Application storage directory used to store all application
-     * settings
-     */
-    public File getApplicationSettingsDirectory();
+    static enum DialogueType {
 
-    /**
-     * @return Current project directory used to store project configuration
-     * files and project directories
-     */
-    public File getProjectDirectory();
+        open, save, custom
+    };
 
-    /**
-     * @return Current project working directory used to store all users working
-     * files
-     */
-    public File getProjectWorkingDirectory();
+    void addMessageDialogToQueue(String messageString, String messageTitle);
+
+    boolean showConfirmDialogBox(String messageString, String messageTitle);
+
+    int showDialogBox(String message, String title, int optionType, int messageType);
+
+    int showDialogBox(String message, String title, int optionType, int messageType, Object[] options, Object initialValue);
+
+    File[] showFileSelectBox(String titleText, boolean directorySelectOnly, boolean multipleSelect, Map<String, javax.swing.filechooser.FileFilter> fileFilterMap, DialogueType dialogueType, JComponent customAccessory);
 }

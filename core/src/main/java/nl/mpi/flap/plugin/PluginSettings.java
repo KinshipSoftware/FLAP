@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright (C) 2012 Max Planck Institute for Psycholinguistics
  *
  * This program is free software; you can redistribute it and/or
@@ -15,16 +15,16 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package nl.mpi.arbil.plugin;
+package nl.mpi.flap.plugin;
+
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * Created on : Nov 8, 2012, 11:48:33 AM
- *
- * @author Peter Withers <peter.withers@mpi.nl>
+ * Document : PluginSettings
+ * Created on : Dec 30, 2011, 3:04:27 PM
+ * Author : Peter Withers
  */
-public class WrongNodeTypeException extends Exception {
-
-    public WrongNodeTypeException(String string) {
-        super(string);
-    }
+@XmlRootElement(name = "PluginSettings")
+public interface PluginSettings {
+// This class should be used to store run time settings for the plugin and should be annotated for jaxb
 }
