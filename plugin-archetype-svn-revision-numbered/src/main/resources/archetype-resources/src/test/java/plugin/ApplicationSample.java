@@ -39,10 +39,10 @@ import nl.mpi.pluginloader.ui.PluginMenu;
  *
  * @author Peter Withers
  */
-public class ApplicationSample extends JFrame {
+public class ApplicationSample {
 
     public static void main(String[] args) {
-        JFrame jFrame = new ApplicationSample();
+        JFrame jFrame = new JFrame();
         jFrame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         JMenuBar jMenuBar = new JMenuBar();
         StringBuilder stringBuilder = new StringBuilder();
