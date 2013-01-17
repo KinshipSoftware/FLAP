@@ -17,7 +17,7 @@
  */
 package nl.mpi.pluginloader;
 
-import nl.mpi.kinnate.plugin.BasePlugin;
+import nl.mpi.arbil.plugin.BasePlugin;
 
 /**
  * Document : PluginManager
