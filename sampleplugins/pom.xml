@@ -6,8 +6,8 @@
     <artifactId>sampleplugins</artifactId>
     <!--    Either use the snapshot version of manually enter the current build number. 
     The build number is only required when depending on the output in other projects or building to the server.-->
-    <!--<version>${plugin.majorVersion}.${plugin.minorVersion}-${plugin.branch}-SNAPSHOT</version>-->
-    <version>${plugin.majorVersion}.${plugin.minorVersion}.34200-${plugin.branch}</version>
+    <version>${plugin.majorVersion}.${plugin.minorVersion}-${plugin.branch}-SNAPSHOT</version>
+<!--    <version>${plugin.majorVersion}.${plugin.minorVersion}.34200-${plugin.branch}</version>-->
     <packaging>jar</packaging>
 
     <name>Sample Plugins</name>
@@ -87,7 +87,7 @@
         <dependency>
             <groupId>nl.mpi</groupId>
             <artifactId>pluginloader</artifactId>
-            <version>1.1.34202-pretesting</version>
+            <version>1.1-pretesting-SNAPSHOT</version>
         </dependency>
 <!--        <dependency>
             <groupId>nl.mpi</groupId>

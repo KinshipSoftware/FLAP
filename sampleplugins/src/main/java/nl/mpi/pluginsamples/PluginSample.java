@@ -17,8 +17,9 @@
  */
 package nl.mpi.pluginsamples;
 
-import nl.mpi.kinnate.plugin.BasePlugin;
-import nl.mpi.pluginloader.PluginSettings;
+import nl.mpi.arbil.plugin.BasePlugin;
+import nl.mpi.arbil.plugin.PluginSettings;
+
 
 /**
  * Document : PluginSample Created on : Dec 22, 2011, 3:58:34 PM
