@@ -83,12 +83,6 @@
             <artifactId>plugins-core</artifactId>
             <version>1.1-pretesting-SNAPSHOT</version>
         </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>sampleplugins</artifactId>
-            <version>${project.version}</version>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
     <repositories>
         <repository>
