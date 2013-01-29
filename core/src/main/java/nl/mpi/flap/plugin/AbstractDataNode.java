@@ -33,6 +33,9 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement(name = "DataNode")
 public abstract class AbstractDataNode implements PluginArbilDataNode {
 
+    @XmlAttribute(name = "ID")
+    public abstract String getID();
+
     @XmlAttribute(name = "Label")
     public String getName() {
         return this.toString();

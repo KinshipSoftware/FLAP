@@ -25,7 +25,13 @@ import javax.swing.ImageIcon;
  * @author Peter Withers <br>
  */
 public interface PluginArbilDataNode {
-    
+
+    /**
+     * @return The string identifier for this node, please note that this is not
+     * an archive handle and will only be relevant to the implementation.
+     */
+    public abstract String getID();
+
     /**
      * @return The icon for this node.
      */
