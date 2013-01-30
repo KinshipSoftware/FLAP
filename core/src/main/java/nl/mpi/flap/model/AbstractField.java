@@ -15,29 +15,34 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package nl.mpi.flap.plugin;
+package nl.mpi.flap.model;
 
-import java.util.List;
 import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
 
 /**
- * Created on : Dec 27, 2012, 2:09:41 PM
+ * Created on : Dec 27, 2012, 2:51:24 PM
  *
  * @author Peter Withers <peter.withers@mpi.nl>
  */
-public class FieldGroup {
+public abstract class AbstractField implements PluginField {
 
-    @XmlAttribute(name = "Label")
-    public String fieldName;
-    @XmlElement(name = "FieldData")
-    public List<AbstractField> fieldArray;
-
-    private FieldGroup() {
+    public AbstractField() {
     }
 
-    public FieldGroup(String feildName, List<AbstractField> fieldArray) {
-        this.fieldName = feildName;
-        this.fieldArray = fieldArray;
-    }
+    @XmlAttribute(name = "KeyName")
+    public abstract String getKeyName();
+
+    public abstract String getLanguageId();
+
+    @XmlAttribute(name = "FieldValue")
+    public abstract String getFieldValue();
+
+    public abstract void setFieldValue(String fieldValueToBe, boolean updateUI, boolean excludeFromUndoHistory);
+
+    public abstract void setLanguageId(String languageIdLocal, boolean updateUI, boolean excludeFromUndoHistory);
+
+    public abstract boolean setKeyName(String keyNameLocal, boolean updateUI, boolean excludeFromUndoHistory);
+
+    @XmlAttribute(name = "FullXmlPath")
+    public abstract String getFullXmlPath();
 }

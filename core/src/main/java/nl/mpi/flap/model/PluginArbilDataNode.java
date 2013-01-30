@@ -15,22 +15,32 @@
  * this program; if not, write to the Free Software Foundation, Inc., 59 Temple
  * Place - Suite 330, Boston, MA 02111-1307, USA.
  */
-package nl.mpi.flap.plugin;
+package nl.mpi.flap.model;
 
-import nl.mpi.flap.model.PluginArbilDataNode;
-import java.net.URI;
+import javax.swing.ImageIcon;
 
 /**
- * Document : PluginArbilDataNodeLoader <br> Created on Sep 10, 2012, 5:59:04 PM
- * <br>
+ * Document : PluginArbilDataNode <br> Created on Sep 10, 2012, 6:09:01 PM <br>
  *
  * @author Peter Withers <br>
  */
-public interface PluginArbilDataNodeLoader {
+public interface PluginArbilDataNode {
 
-    public PluginArbilDataNode getPluginArbilDataNode(Object registeringObject, URI localUri);
+    /**
+     * @return The string identifier for this node, please note that this is not
+     * an archive handle and will only be relevant to the implementation.
+     */
+    public abstract String getID();
 
-    public URI getNodeURI(PluginArbilDataNode dataNode) throws WrongNodeTypeException;
+    /**
+     * @return The icon for this node.
+     */
+    public abstract ImageIcon getIcon();
 
-    public boolean isNodeLoading(PluginArbilDataNode dataNode);
+    /**
+     * Gets an array of the children of this node.
+     *
+     * @return An array of the next level child nodes.
+     */
+    public abstract PluginArbilDataNode[] getChildArray();
 }

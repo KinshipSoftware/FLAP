@@ -15,24 +15,30 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package nl.mpi.flap.plugin;
+package nl.mpi.flap.model;
+
+import nl.mpi.flap.model.AbstractField;
+import java.util.List;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 
 /**
- * Created on : Dec 19, 2012, 11:54:36 AM
+ * Created on : Dec 27, 2012, 2:09:41 PM
  *
  * @author Peter Withers <peter.withers@mpi.nl>
  */
-public interface PluginField {
+public class FieldGroup {
 
-    public String getKeyName();
+    @XmlAttribute(name = "Label")
+    public String fieldName;
+    @XmlElement(name = "FieldData")
+    public List<AbstractField> fieldArray;
 
-    public String getLanguageId();
+    private FieldGroup() {
+    }
 
-    public String getFieldValue();
-
-    public void setFieldValue(String fieldValueToBe, boolean updateUI, boolean excludeFromUndoHistory);
-
-    public void setLanguageId(String languageIdLocal, boolean updateUI, boolean excludeFromUndoHistory);
-
-    public boolean setKeyName(String keyNameLocal, boolean updateUI, boolean excludeFromUndoHistory);
+    public FieldGroup(String feildName, List<AbstractField> fieldArray) {
+        this.fieldName = feildName;
+        this.fieldArray = fieldArray;
+    }
 }

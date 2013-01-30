@@ -17,30 +17,14 @@
  */
 package nl.mpi.flap.plugin;
 
-import javax.swing.ImageIcon;
+import nl.mpi.flap.kinnate.KinOathEntity;
 
 /**
- * Document : PluginArbilDataNode <br> Created on Sep 10, 2012, 6:09:01 PM <br>
+ * Created on Nov 12, 2012, 13:21 PM <br>
  *
  * @author Peter Withers <br>
  */
-public interface PluginArbilDataNode {
+public interface KinOathEntityProviderPlugin {
 
-    /**
-     * @return The string identifier for this node, please note that this is not
-     * an archive handle and will only be relevant to the implementation.
-     */
-    public abstract String getID();
-
-    /**
-     * @return The icon for this node.
-     */
-    public abstract ImageIcon getIcon();
-
-    /**
-     * Gets an array of the children of this node.
-     *
-     * @return An array of the next level child nodes.
-     */
-    public abstract PluginArbilDataNode[] getChildArray();
+    public KinOathEntity[] getEntities(PluginDialogHandler dialogHandler, PluginSessionStorage sessionStorage, PluginBugCatcher bugCatcher) throws PluginException;
 }

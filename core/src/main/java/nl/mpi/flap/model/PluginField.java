@@ -15,18 +15,24 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package nl.mpi.flap.plugin;
-
-import nl.mpi.flap.model.PluginArbilDataNode;
+package nl.mpi.flap.model;
 
 /**
- * Created on : Nov 7, 2012, 3:43:24 PM
+ * Created on : Dec 19, 2012, 11:54:36 AM
  *
  * @author Peter Withers <peter.withers@mpi.nl>
  */
-public interface PluginArbilTableModel {
+public interface PluginField {
 
-    public void removeAllArbilDataNodeRows();
+    public String getKeyName();
 
-    public void addArbilDataNodes(PluginArbilDataNode[] pluginArbilDataNodes);
+    public String getLanguageId();
+
+    public String getFieldValue();
+
+    public void setFieldValue(String fieldValueToBe, boolean updateUI, boolean excludeFromUndoHistory);
+
+    public void setLanguageId(String languageIdLocal, boolean updateUI, boolean excludeFromUndoHistory);
+
+    public boolean setKeyName(String keyNameLocal, boolean updateUI, boolean excludeFromUndoHistory);
 }
