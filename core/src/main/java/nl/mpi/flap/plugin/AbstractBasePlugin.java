@@ -27,7 +27,7 @@ import org.slf4j.LoggerFactory;
  *
  * @author Peter Withers
  */
-public abstract class AbstractBasePlugin implements BasePlugin {
+public abstract class AbstractBasePlugin implements BaseModule {
 
     final private String nameString;
     final private String descriptionString;

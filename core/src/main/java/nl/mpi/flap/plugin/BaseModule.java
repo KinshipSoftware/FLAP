@@ -22,7 +22,7 @@ package nl.mpi.flap.plugin;
  *
  * @author Peter Withers
  */
-public interface BasePlugin {
+public interface BaseModule {
 
     public String getName();
 
