@@ -26,7 +26,7 @@ import nl.mpi.flap.plugin.PluginException;
  *
  * @author Peter Withers
  */
-public class AbstractBasePluginTest extends TestCase {
+public class AbstractBaseModuleTest extends TestCase {
 
     /**
      * Test of getArtifactVersion method, of class AbstractBaseModule.
