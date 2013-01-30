@@ -22,7 +22,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Iterator;
 import java.util.ServiceConfigurationError;
-import nl.mpi.flap.plugin.BasePlugin;
+import nl.mpi.flap.module.BaseModule;
 import nl.mpi.flap.plugin.PluginException;
 
 /**
@@ -34,25 +34,25 @@ import nl.mpi.flap.plugin.PluginException;
 public class PluginServiceTestRunner extends PluginTestRunner {
 
     public static void main(String[] args) {
-	try {
-	    final PluginService pluginService = new PluginService(new URL[]{new File(System.getProperty("user.home"), "TLA-Plugins").toURI().toURL(), new URL("file:///Users/twagoo/svn/PluginsAndModules/framework/trunk/sampleplugins/target/sampleplugins-1.1-pretesting-SNAPSHOT.jar")});
-	    listPlugins(pluginService);
-	} catch (MalformedURLException exception) {
-	    System.out.println(exception.getMessage());
-	} catch (PluginException exception) {
-	    System.out.println(exception.getMessage());
-	}
+        try {
+            final PluginService pluginService = new PluginService(new URL[]{new File(System.getProperty("user.home"), "TLA-Plugins").toURI().toURL(), new URL("file:///Users/twagoo/svn/PluginsAndModules/framework/trunk/sampleplugins/target/sampleplugins-1.1-pretesting-SNAPSHOT.jar")});
+            listPlugins(pluginService);
+        } catch (MalformedURLException exception) {
+            System.out.println(exception.getMessage());
+        } catch (PluginException exception) {
+            System.out.println(exception.getMessage());
+        }
     }
 
     public static void listPlugins(PluginService pluginService) throws PluginException {
-	try {
-	    Iterator<BasePlugin> pluginIterator = pluginService.getPlugins();
-	    while (pluginIterator.hasNext()) {
-		BasePlugin d = pluginIterator.next();
-		System.out.println("Name: " + d.getName());
-	    }
-	} catch (ServiceConfigurationError serviceError) {
-	    serviceError.printStackTrace(System.out);
-	}
+        try {
+            Iterator<BaseModule> pluginIterator = pluginService.getPlugins();
+            while (pluginIterator.hasNext()) {
+                BaseModule d = pluginIterator.next();
+                System.out.println("Name: " + d.getName());
+            }
+        } catch (ServiceConfigurationError serviceError) {
+            serviceError.printStackTrace(System.out);
+        }
     }
 }
