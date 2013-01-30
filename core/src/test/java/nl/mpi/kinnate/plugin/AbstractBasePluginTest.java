@@ -18,7 +18,7 @@
 package nl.mpi.kinnate.plugin;
 
 import junit.framework.TestCase;
-import nl.mpi.flap.plugin.AbstractBasePlugin;
+import nl.mpi.flap.plugin.AbstractBaseModule;
 import nl.mpi.flap.plugin.PluginException;
 
 /**
@@ -29,18 +29,18 @@ import nl.mpi.flap.plugin.PluginException;
 public class AbstractBasePluginTest extends TestCase {
 
     /**
-     * Test of getArtifactVersion method, of class AbstractBasePlugin.
+     * Test of getArtifactVersion method, of class AbstractBaseModule.
      */
     public void testGetArtifactVersion() {
 	try {
-	    AbstractBasePlugin abstractBasePlugin = new AbstractBasePluginImpl();
+	    AbstractBaseModule abstractBasePlugin = new AbstractBasePluginImpl();
 	    assertTrue(abstractBasePlugin.isMavenVersionCorrect());
 	} catch (PluginException exception) {
 	    fail(exception.getMessage());
 	}
     }
 
-    public class AbstractBasePluginImpl extends AbstractBasePlugin {
+    public class AbstractBasePluginImpl extends AbstractBaseModule {
 
 	public AbstractBasePluginImpl() throws PluginException {
 	    super("test name", "test description", "nl.mpi.kinnate.plugin");

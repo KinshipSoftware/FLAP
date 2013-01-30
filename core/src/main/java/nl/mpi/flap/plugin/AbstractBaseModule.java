@@ -23,11 +23,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Document : AbstractBasePlugin Created on : Sep 27, 2012, 11:30
+ * Document : AbstractBaseModule Created on : Sep 27, 2012, 11:30
  *
  * @author Peter Withers
  */
-public abstract class AbstractBasePlugin implements BaseModule {
+public abstract class AbstractBaseModule implements BaseModule {
 
     final private String nameString;
     final private String descriptionString;
@@ -39,7 +39,7 @@ public abstract class AbstractBasePlugin implements BaseModule {
     final private String lastCommitDate;
     final private Logger logger = LoggerFactory.getLogger(getClass());
 
-    public AbstractBasePlugin(String nameString, String descriptionString, String packageString) throws PluginException {
+    public AbstractBaseModule(String nameString, String descriptionString, String packageString) throws PluginException {
 	this.nameString = nameString;
 	this.descriptionString = descriptionString;
 
