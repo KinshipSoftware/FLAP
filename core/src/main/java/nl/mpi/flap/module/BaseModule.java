@@ -15,7 +15,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package nl.mpi.flap.plugin;
+package nl.mpi.flap.module;
 
 /**
  * Document : KinOathPlugin Created on : Dec 20, 2011, 2:49:57 PM

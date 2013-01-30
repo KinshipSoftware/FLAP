@@ -18,7 +18,6 @@
 package nl.mpi.flap.module;
 
 import junit.framework.TestCase;
-import nl.mpi.flap.plugin.AbstractBaseModule;
 import nl.mpi.flap.plugin.PluginException;
 
 /**
