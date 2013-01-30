@@ -18,7 +18,7 @@
 package nl.mpi.pluginsamples;
 
 import nl.mpi.flap.plugin.ActivatablePlugin;
-import nl.mpi.flap.plugin.BasePlugin;
+import nl.mpi.flap.module.BaseModule;
 import nl.mpi.flap.plugin.PluginDialogHandler;
 import nl.mpi.flap.plugin.PluginException;
 import nl.mpi.flap.plugin.PluginSessionStorage;
@@ -29,7 +29,7 @@ import nl.mpi.flap.plugin.PluginSettings;
  *
  * @author Peter Withers
  */
-public class PluginSampleActivate implements BasePlugin, PluginSettings, ActivatablePlugin {
+public class PluginSampleActivate implements BaseModule, PluginSettings, ActivatablePlugin {
 
     boolean isActivated = false;
 

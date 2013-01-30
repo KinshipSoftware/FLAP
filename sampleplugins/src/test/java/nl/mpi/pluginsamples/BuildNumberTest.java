@@ -18,7 +18,7 @@
 package nl.mpi.pluginsamples;
 
 import junit.framework.TestCase;
-import nl.mpi.flap.plugin.AbstractBasePlugin;
+import nl.mpi.flap.module.AbstractBaseModule;
 import nl.mpi.flap.plugin.PluginException;
 
 /**
@@ -34,14 +34,14 @@ public class BuildNumberTest extends TestCase {
     public void testBuildVersion() {
         System.out.println("testBuildVersion");
         try {
-            AbstractBasePlugin abstractBasePlugin = new AbstractBasePluginImpl();
+            AbstractBaseModule abstractBasePlugin = new AbstractBasePluginImpl();
             assertTrue(abstractBasePlugin.isMavenVersionCorrect());
         } catch (PluginException exception) {
             fail(exception.getMessage());
         }
     }
 
-    public class AbstractBasePluginImpl extends AbstractBasePlugin {
+    public class AbstractBasePluginImpl extends AbstractBaseModule {
 
         public AbstractBasePluginImpl() throws PluginException {
             super("test name", "test description", "nl.mpi.pluginsamples");

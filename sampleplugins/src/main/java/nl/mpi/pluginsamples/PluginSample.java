@@ -17,7 +17,7 @@
  */
 package nl.mpi.pluginsamples;
 
-import nl.mpi.flap.plugin.BasePlugin;
+import nl.mpi.flap.module.BaseModule;
 import nl.mpi.flap.plugin.PluginSettings;
 
 
@@ -26,7 +26,7 @@ import nl.mpi.flap.plugin.PluginSettings;
  *
  * @author Peter Withers
  */
-public class PluginSample implements BasePlugin, PluginSettings {
+public class PluginSample implements BaseModule, PluginSettings {
 
     public String getName() {
         return "Sample Plugin Name";
