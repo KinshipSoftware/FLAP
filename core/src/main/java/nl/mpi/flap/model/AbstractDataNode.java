@@ -34,10 +34,14 @@ import javax.xml.bind.annotation.XmlTransient;
 public abstract class AbstractDataNode implements PluginArbilDataNode, Serializable {
 
     @XmlAttribute(name = "ID")
+    public abstract void setID(String id);
+
     public abstract String getID();
 
     @XmlAttribute(name = "Label")
-    public String getName() {
+    public abstract void setLabel(String label);
+
+    public String getLabel() {
         return this.toString();
     }
 
