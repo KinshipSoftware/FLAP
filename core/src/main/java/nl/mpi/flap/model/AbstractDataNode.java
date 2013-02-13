@@ -17,9 +17,9 @@
  */
 package nl.mpi.flap.model;
 
-import java.net.URI;
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
-import javax.swing.ImageIcon;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -31,7 +31,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author Peter Withers <peter.withers@mpi.nl>
  */
 @XmlRootElement(name = "DataNode")
-public abstract class AbstractDataNode implements PluginArbilDataNode {
+public abstract class AbstractDataNode implements PluginArbilDataNode, Serializable {
 
     @XmlAttribute(name = "ID")
     public abstract String getID();
@@ -41,11 +41,8 @@ public abstract class AbstractDataNode implements PluginArbilDataNode {
         return this.toString();
     }
 
-    @XmlAttribute(name = "NodeURI")
-    public abstract URI getURI();
-
-    @XmlTransient
-    public abstract ImageIcon getIcon();
+    @XmlElement(name = "Type")
+    public abstract AbstractDataNodeType getType();
 
     @XmlElement(name = "FieldGroup")
     public abstract List<FieldGroup> getFieldGroups();
@@ -68,10 +65,20 @@ public abstract class AbstractDataNode implements PluginArbilDataNode {
 //        }
 //        return fieldArrays;
 //    }
-
 //    public abstract Hashtable<String, PluginField[]> getFields();
     // todo: we could return a xml ref here
 //    @XmlElementWrapper(name = "DataNodeChildWrapper")
-    @XmlElement(name = "DataNode", type = AbstractDataNode.class)
+//    @XmlElement(name = "DataNode", type = AbstractDataNode.class)
+
+    @XmlTransient
     public abstract AbstractDataNode[] getChildArray();
+
+    @XmlElement(name = "ChildId")
+    public List<String> getChildIds() {
+        ArrayList<String> childIds = new ArrayList<String>();
+        for (AbstractDataNode dataNode : getChildArray()) {
+            childIds.add(dataNode.getID());
+        }
+        return childIds;
+    }
 }

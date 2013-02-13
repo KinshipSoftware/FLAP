@@ -17,8 +17,6 @@
  */
 package nl.mpi.flap.model;
 
-import javax.swing.ImageIcon;
-
 /**
  * Document : PluginArbilDataNode <br> Created on Sep 10, 2012, 6:09:01 PM <br>
  *
@@ -33,9 +31,9 @@ public interface PluginArbilDataNode {
     public abstract String getID();
 
     /**
-     * @return The icon for this node.
+     * @return The note type object for this data node
      */
-    public abstract ImageIcon getIcon();
+    public abstract DataNodeType getType();
 
     /**
      * Gets an array of the children of this node.
