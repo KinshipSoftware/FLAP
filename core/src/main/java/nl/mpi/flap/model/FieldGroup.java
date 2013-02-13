@@ -17,7 +17,7 @@
  */
 package nl.mpi.flap.model;
 
-import nl.mpi.flap.model.AbstractField;
+import java.io.Serializable;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlElement;
  *
  * @author Peter Withers <peter.withers@mpi.nl>
  */
-public class FieldGroup {
+public class FieldGroup implements Serializable {
 
     @XmlAttribute(name = "Label")
     public String fieldName;

@@ -17,14 +17,17 @@
  */
 package nl.mpi.flap.model;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Created on : Dec 27, 2012, 2:51:24 PM
  *
  * @author Peter Withers <peter.withers@mpi.nl>
  */
-public abstract class AbstractField implements PluginField {
+@XmlRootElement(name = "FieldData")
+public abstract class AbstractField implements PluginField, Serializable {
 
     public AbstractField() {
     }
@@ -32,6 +35,7 @@ public abstract class AbstractField implements PluginField {
     @XmlAttribute(name = "KeyName")
     public abstract String getKeyName();
 
+    @XmlAttribute(name = "LanguageId")
     public abstract String getLanguageId();
 
     @XmlAttribute(name = "FieldValue")
@@ -43,6 +47,6 @@ public abstract class AbstractField implements PluginField {
 
     public abstract boolean setKeyName(String keyNameLocal, boolean updateUI, boolean excludeFromUndoHistory);
 
-    @XmlAttribute(name = "FullXmlPath")
+    @XmlAttribute(name = "XmlPath")
     public abstract String getFullXmlPath();
 }
