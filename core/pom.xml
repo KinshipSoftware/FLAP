@@ -1,6 +1,6 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>nl.mpi</groupId>
     <artifactId>plugins-core</artifactId>
@@ -11,82 +11,89 @@
     <!--<version>${plugin.majorVersion}.${plugin.minorVersion}.34948-${plugin.branch}</version>-->
     <name>Plugins Core</name>
     <parent>
-	<groupId>nl.mpi</groupId>
-	<artifactId>plugins-core-parent</artifactId>
-	<version>1.0</version>
+        <groupId>nl.mpi</groupId>
+        <artifactId>plugins-core-parent</artifactId>
+        <version>1.0</version>
     </parent> 
     <url>http://maven.apache.org</url>   
     <build>
-	<resources>
-	    <resource>
-		<directory>src/main/resources</directory>
-		<filtering>false</filtering>
-	    </resource>
-	    <resource>
-		<directory>src/main/resources</directory>
-		<filtering>true</filtering>
-		<includes>
-		    <include>**/version.properties</include>
-		</includes>
-	    </resource>
-	</resources>
-	<plugins>            
-	    <plugin>
-		<!-- this plugin checks the license files in the source files, the configuration is in the parent pom -->
-		<groupId>com.mycila.maven-license-plugin</groupId>
-		<artifactId>maven-license-plugin</artifactId>
-		<version>1.9.0</version> 
-		<executions>
-		    <execution>
-			<goals>
-			    <goal>check</goal>
-			</goals>
-		    </execution>
-		</executions>
-	    </plugin>
-	    <plugin>
-		<groupId>org.apache.maven.plugins</groupId>
-		<artifactId>maven-compiler-plugin</artifactId>
-		<configuration>
-		    <source>1.5</source>
-		    <target>1.5</target>
-		</configuration>
-	    </plugin>
-	    <plugin>
-		<groupId>org.apache.maven.plugins</groupId>
-		<artifactId>maven-source-plugin</artifactId>
-		<version>2.1.2</version>
-		<executions>
-		    <execution>
-			<id>attach-sources</id>
-			<phase>verify</phase>
-			<goals>
-			    <goal>jar-no-fork</goal>
-			</goals>
-		    </execution>
-		</executions>
-	    </plugin>
-	    <plugin>
-		<groupId>com.google.code.maven-svn-revision-number-plugin</groupId>
-		<artifactId>maven-svn-revision-number-plugin</artifactId>
-		<version>1.7</version>
-		<executions>
-		    <execution>
-			<goals>
-			    <goal>revision</goal>
-			</goals>
-		    </execution>
-		</executions>
-		<configuration>
-		    <entries>
-			<entry>
-			    <path>${basedir}/src</path>
-			    <!-- this will populate "plugin.version.revision" -->
-			    <prefix>plugin.version</prefix>
-			</entry>
-		    </entries>
-		</configuration>
-	    </plugin>
-	</plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/version.properties</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>nl/mpi/flap/model/*.java</include>
+                    <include>**/*.gwt.xml</include>
+                </includes>
+            </resource>
+        </resources>
+        <plugins>            
+            <plugin>
+                <!-- this plugin checks the license files in the source files, the configuration is in the parent pom -->
+                <groupId>com.mycila.maven-license-plugin</groupId>
+                <artifactId>maven-license-plugin</artifactId>
+                <version>1.9.0</version> 
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.1.2</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.google.code.maven-svn-revision-number-plugin</groupId>
+                <artifactId>maven-svn-revision-number-plugin</artifactId>
+                <version>1.7</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>revision</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <entries>
+                        <entry>
+                            <path>${basedir}/src</path>
+                            <!-- this will populate "plugin.version.revision" -->
+                            <prefix>plugin.version</prefix>
+                        </entry>
+                    </entries>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 </project>
