@@ -60,6 +60,11 @@ public class MockDataNode extends AbstractDataNode {
     }
 
     @Override
+    public void setFieldGroups(List<FieldGroup> fieldGroups) {
+        this.fieldGroups = fieldGroups;
+    }
+
+    @Override
     public List<FieldGroup> getFieldGroups() {
         return fieldGroups;
     }

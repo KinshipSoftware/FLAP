@@ -22,8 +22,8 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.transform.stream.StreamSource;
-import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Test;
 
 /**
  * Created on : Feb 13, 2013, 11:33:15 AM
@@ -32,6 +32,10 @@ import static org.junit.Assert.*;
  */
 public class AbstractDataJaxBTest {
 
+    final String testNodeName = "Test Node";
+    final String testNodeId = "hdl:1839/00-0000-0000-0001-2A9A-4";
+    final String testGroupName = "Test Group";
+
     public AbstractDataJaxBTest() {
     }
 
@@ -39,12 +43,41 @@ public class AbstractDataJaxBTest {
      * Test of getID method, of class AbstractDataNode.
      */
     @Test
-    public void testAllAbstractClassForJaxB() throws JAXBException {
+    public void testDataNodeForJaxB() throws JAXBException {
+
+        JAXBContext jaxbContext = JAXBContext.newInstance(AbstractDataNode.class, MockDataNode.class);
+        Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+        String dataXmlString = "<DataNode Label=\"" + testNodeName + "\" ID=\"" + testNodeId + "\"/>";
+        System.out.println("dataXmlString: " + dataXmlString);
+        MockDataNode dataNode = (MockDataNode) unmarshaller.unmarshal(new StreamSource(new StringReader(dataXmlString)), MockDataNode.class).getValue();
+        assertEquals(dataNode.getLabel(), testNodeName);
+        assertEquals(dataNode.getID(), testNodeId);
+    }
+
+    /**
+     * Test of getID method, of class AbstractDataNode.
+     */
+    @Test
+    public void testFieldGroupForJaxB() throws JAXBException {
+
+        JAXBContext jaxbContext = JAXBContext.newInstance(AbstractDataNode.class, FieldGroup.class, MockDataNode.class);
+        Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+        String dataXmlString = "<DataNode Label=\"" + testNodeName + "\" ID=\"" + testNodeId + "\"><FieldGroup Label=\"" + testGroupName + "\"/></DataNode>";
+        System.out.println("dataXmlString: " + dataXmlString);
+        MockDataNode dataNode = (MockDataNode) unmarshaller.unmarshal(new StreamSource(new StringReader(dataXmlString)), MockDataNode.class).getValue();
+        assertEquals(dataNode.getLabel(), testNodeName);
+        assertEquals(dataNode.getID(), testNodeId);
+        assertEquals(dataNode.fieldGroups.get(0).fieldName, testGroupName);
+    }
+
+    /**
+     * Test of getID method, of class AbstractDataNode.
+     */
+    @Test
+    public void testDataFieldForJaxB() throws JAXBException {
 
         JAXBContext jaxbContext = JAXBContext.newInstance(AbstractDataNode.class, AbstractField.class, FieldGroup.class, AbstractDataNodeType.class, MockDataNode.class);
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-        final String testNodeName = "Test Node";
-        final String testNodeId = "hdl:1839/00-0000-0000-0001-2A9A-4";
         String dataXmlString = "<DataNode Label=\"" + testNodeName + "\" ID=\"" + testNodeId + "\"/>";
         System.out.println("dataXmlString: " + dataXmlString);
         MockDataNode dataNode = (MockDataNode) unmarshaller.unmarshal(new StreamSource(new StringReader(dataXmlString)), MockDataNode.class).getValue();

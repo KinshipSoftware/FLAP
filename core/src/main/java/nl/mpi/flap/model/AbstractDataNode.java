@@ -49,6 +49,8 @@ public abstract class AbstractDataNode implements PluginArbilDataNode, Serializa
     public abstract AbstractDataNodeType getType();
 
     @XmlElement(name = "FieldGroup")
+    public abstract void setFieldGroups(List<FieldGroup> fieldGroups);
+
     public abstract List<FieldGroup> getFieldGroups();
 //    private ArrayList<FieldArray> getFieldArray() {
 //        ArrayList<FieldArray> fieldArrays = new ArrayList<FieldArray>();
