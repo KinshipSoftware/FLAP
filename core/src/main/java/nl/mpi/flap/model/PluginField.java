@@ -26,13 +26,13 @@ public interface PluginField {
 
     public String getKeyName();
 
+    public void setKeyName(String keyNameLocal);
+
     public String getLanguageId();
+
+    public void setLanguageId(String languageIdLocal);
 
     public String getFieldValue();
 
-    public void setFieldValue(String fieldValueToBe, boolean updateUI, boolean excludeFromUndoHistory);
-
-    public void setLanguageId(String languageIdLocal, boolean updateUI, boolean excludeFromUndoHistory);
-
-    public boolean setKeyName(String keyNameLocal, boolean updateUI, boolean excludeFromUndoHistory);
+    public void setFieldValue(String fieldValueToBe);
 }

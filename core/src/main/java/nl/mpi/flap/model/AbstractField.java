@@ -29,24 +29,23 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "FieldData")
 public abstract class AbstractField implements PluginField, Serializable {
 
-    public AbstractField() {
-    }
-
     @XmlAttribute(name = "KeyName")
+    public abstract void setKeyName(String keyName);
+
     public abstract String getKeyName();
 
     @XmlAttribute(name = "LanguageId")
+    public abstract void setLanguageId(String languageId);
+
     public abstract String getLanguageId();
 
     @XmlAttribute(name = "FieldValue")
+    public abstract void setFieldValue(String fieldValue);
+
     public abstract String getFieldValue();
 
-    public abstract void setFieldValue(String fieldValueToBe, boolean updateUI, boolean excludeFromUndoHistory);
-
-    public abstract void setLanguageId(String languageIdLocal, boolean updateUI, boolean excludeFromUndoHistory);
-
-    public abstract boolean setKeyName(String keyNameLocal, boolean updateUI, boolean excludeFromUndoHistory);
-
     @XmlAttribute(name = "XmlPath")
-    public abstract String getFullXmlPath();
+    public abstract void setXmlPath(String xmlPath);
+
+    public abstract String getXmlPath();
 }
