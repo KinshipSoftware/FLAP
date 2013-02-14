@@ -32,7 +32,7 @@ public class MockDataNode extends AbstractDataNode {
     AbstractDataNodeType dataNodeType = null;
     String nodeIconId = null;
     List<FieldGroup> fieldGroups;
-    MockDataNode[] childArray;
+    List<String> childIds;
 
     @Override
     public void setID(String id) {
@@ -59,18 +59,26 @@ public class MockDataNode extends AbstractDataNode {
         return dataNodeType;
     }
 
+//    @Override
+//    public void setFieldGroups(List<FieldGroup> fieldGroups) {
+//        this.fieldGroups = fieldGroups;
+//    }
+//
+//    @Override
+//    public List<FieldGroup> getFieldGroups() {
+//        return fieldGroups;
+//    }
     @Override
-    public void setFieldGroups(List<FieldGroup> fieldGroups) {
-        this.fieldGroups = fieldGroups;
+    public List<PluginArbilDataNode> getChildArray() {
+        return null;
     }
 
     @Override
-    public List<FieldGroup> getFieldGroups() {
-        return fieldGroups;
+    public List<String> getChildIds() {
+        return childIds;
     }
 
-    @Override
-    public MockDataNode[] getChildArray() {
-        return childArray;
+    public void setChildIds(List<String> childIds) {
+        this.childIds = childIds;
     }
 }
