@@ -21,6 +21,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * Created on : Dec 27, 2012, 2:09:41 PM
@@ -29,10 +30,10 @@ import javax.xml.bind.annotation.XmlElement;
  */
 public class FieldGroup implements Serializable {
 
-    @XmlAttribute(name = "Label")
-    public String fieldName;
-    @XmlElement(name = "FieldData")
-    public List<AbstractField> fieldArray;
+    @XmlTransient
+    private String fieldName;
+    @XmlTransient
+    private List<AbstractField> fieldArray;
 
     private FieldGroup() {
     }
@@ -40,5 +41,23 @@ public class FieldGroup implements Serializable {
     public FieldGroup(String feildName, List<AbstractField> fieldArray) {
         this.fieldName = feildName;
         this.fieldArray = fieldArray;
+    }
+
+    @XmlAttribute(name = "Label")
+    public void setFieldName(String fieldName) {
+        this.fieldName = fieldName;
+    }
+
+    public String getFieldName() {
+        return fieldName;
+    }
+
+    @XmlElement(name = "FieldData")
+    public void setFieldArray(List<AbstractField> fieldArray) {
+        this.fieldArray = fieldArray;
+    }
+
+    public List<AbstractField> getFieldArray() {
+        return fieldArray;
     }
 }

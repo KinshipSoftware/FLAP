@@ -32,9 +32,6 @@ import org.junit.Test;
  */
 public class AbstractDataJaxBTest {
 
-    final String testNodeId = "hdl:1839/00-0000-0000-0001-2A9A-4";
-    final String testGroupName = "Test Group";
-
     public AbstractDataJaxBTest() {
     }
 
@@ -45,25 +42,26 @@ public class AbstractDataJaxBTest {
     public void testDataNodeForJaxB() throws JAXBException {
         JAXBContext jaxbContext = JAXBContext.newInstance(MockDataNode.class);
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-        String dataXmlString = "<DataNode Label=\"Test Node\" ID=\"" + testNodeId + "\"><ChildId>Test Child</ChildId></DataNode>";
+        String dataXmlString = "<DataNode Label=\"Test Node\" ID=\"Test Group\"><ChildId>Test Child</ChildId></DataNode>";
         System.out.println("dataXmlString: " + dataXmlString);
         MockDataNode dataNode = (MockDataNode) unmarshaller.unmarshal(new StreamSource(new StringReader(dataXmlString)), MockDataNode.class).getValue();
         assertEquals(dataNode.getLabel(), "Test Node");
-        assertEquals(dataNode.getID(), testNodeId);
+        assertEquals(dataNode.getID(), "Test Group");
         assertEquals(dataNode.getChildIds().get(0), "Test Child");
     }
+
     /**
      * Test of deserializing the AbstractFieldGroup.
      */
-//    @Test
-//    public void testFieldGroupForJaxB() throws JAXBException {
-//        JAXBContext jaxbContext = JAXBContext.newInstance(FieldGroup.class, MockDataNode.class);
-//        Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-//        String dataXmlString = "<DataNode Label=\"Test Node\" ID=\"" + testNodeId + "\"><FieldGroup Label=\"" + testGroupName + "\"/></DataNode>";
-//        System.out.println("dataXmlString: " + dataXmlString);
-//        MockDataNode dataNode = (MockDataNode) unmarshaller.unmarshal(new StreamSource(new StringReader(dataXmlString)), MockDataNode.class).getValue();
-//        assertEquals(dataNode.fieldGroups.get(0).fieldName, testGroupName);
-//    }
+    @Test
+    public void testFieldGroupForJaxB() throws JAXBException {
+        JAXBContext jaxbContext = JAXBContext.newInstance(FieldGroup.class, MockDataNode.class);
+        Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+        String dataXmlString = "<DataNode Label=\"Test Node\" ID=\"Test Group\"><FieldGroup Label=\"Test Group Name\"/></DataNode>";
+        System.out.println("dataXmlString: " + dataXmlString);
+        MockDataNode dataNode = (MockDataNode) unmarshaller.unmarshal(new StreamSource(new StringReader(dataXmlString)), MockDataNode.class).getValue();
+        assertEquals(dataNode.getFieldGroups().get(0).getFieldName(), "Test Group Name");
+    }
     /**
      * Test of deserializing the DataField.
      */
@@ -71,7 +69,7 @@ public class AbstractDataJaxBTest {
 //    public void testDataFieldForJaxB() throws JAXBException {
 //        JAXBContext jaxbContext = JAXBContext.newInstance(FieldGroup.class, MockDataNode.class, MockDataField.class);
 //        Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-//        String dataXmlString = "<DataNode Label=\"Test Node\" ID=\"" + testNodeId + "\">"
+//        String dataXmlString = "<DataNode Label=\"Test Node\" ID=\"Test Group\">"
 //                + "<FieldGroup Label=\"" + testGroupName + "\">"
 //                + "<FieldData XmlPath=\".METATRANSCRIPT.Corpus.Name\" FieldValue=\"Test Field\" KeyName=\"Test KeyName\" LanguageId= \"Test LanguageId\"/>"
 //                + "</FieldGroup>"

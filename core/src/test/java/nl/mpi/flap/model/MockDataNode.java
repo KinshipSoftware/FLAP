@@ -27,12 +27,12 @@ import javax.xml.bind.annotation.XmlAttribute;
  */
 public class MockDataNode extends AbstractDataNode {
 
-    String nodeID = null;
-    String label = null;
-    AbstractDataNodeType dataNodeType = null;
-    String nodeIconId = null;
-    List<FieldGroup> fieldGroups;
-    List<String> childIds;
+    private String nodeID = null;
+    private String label = null;
+    private AbstractDataNodeType dataNodeType = null;
+    private String nodeIconId = null;
+    private List<FieldGroup> fieldGroups;
+    private List<String> childIds;
 
     @Override
     public void setID(String id) {
@@ -59,15 +59,16 @@ public class MockDataNode extends AbstractDataNode {
         return dataNodeType;
     }
 
-//    @Override
-//    public void setFieldGroups(List<FieldGroup> fieldGroups) {
-//        this.fieldGroups = fieldGroups;
-//    }
-//
-//    @Override
-//    public List<FieldGroup> getFieldGroups() {
-//        return fieldGroups;
-//    }
+    @Override
+    public void setFieldGroups(List<FieldGroup> fieldGroups) {
+        this.fieldGroups = fieldGroups;
+    }
+
+    @Override
+    public List<FieldGroup> getFieldGroups() {
+        return fieldGroups;
+    }
+
     @Override
     public List<PluginArbilDataNode> getChildArray() {
         return null;
