@@ -82,7 +82,7 @@ public class PluginMenuTestRunner extends PluginTestRunner {
             }
         };
         try {
-            jMenuBar.add(new PluginMenu(new PluginService(new URL[]{new File(System.getProperty("user.home"), "TLA-Plugins").toURI().toURL(), new URL("file:///Users/twagoo/svn/PluginsAndModules/framework/trunk/sampleplugins/target/sampleplugins-1.1-pretesting-SNAPSHOT.jar")}), pluginManager, false));
+            jMenuBar.add(new PluginMenu(new PluginService(new URL[]{new URL("file:///<samplePluginsBuildOutput>/sampleplugins/target/sampleplugins-1.1-pretesting-SNAPSHOT.jar")}), pluginManager, false));
         } catch (MalformedURLException exception) {
             jMenuBar.add(new JLabel(exception.getMessage()));
         }

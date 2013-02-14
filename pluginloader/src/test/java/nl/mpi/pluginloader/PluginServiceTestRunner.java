@@ -35,7 +35,7 @@ public class PluginServiceTestRunner extends PluginTestRunner {
 
     public static void main(String[] args) {
         try {
-            final PluginService pluginService = new PluginService(new URL[]{new File(System.getProperty("user.home"), "TLA-Plugins").toURI().toURL(), new URL("file:///Users/twagoo/svn/PluginsAndModules/framework/trunk/sampleplugins/target/sampleplugins-1.1-pretesting-SNAPSHOT.jar")});
+            final PluginService pluginService = new PluginService(new URL[]{new URL("file:///<samplePluginsBuildOutput>/sampleplugins/target/sampleplugins-1.1-pretesting-SNAPSHOT.jar")});
             listPlugins(pluginService);
         } catch (MalformedURLException exception) {
             System.out.println(exception.getMessage());
