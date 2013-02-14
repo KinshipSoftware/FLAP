@@ -67,18 +67,18 @@ public class AbstractDataJaxBTest {
      */
 //    @Test
 //    public void testDataFieldForJaxB() throws JAXBException {
-//        JAXBContext jaxbContext = JAXBContext.newInstance(FieldGroup.class, MockDataNode.class, MockDataField.class);
+//        JAXBContext jaxbContext = JAXBContext.newInstance(/*, AbstractField.class,MockFieldGroup.class*/FieldGroup.class, MockDataNode.class, AbstractField.class);
 //        Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
 //        String dataXmlString = "<DataNode Label=\"Test Node\" ID=\"Test Group\">"
-//                + "<FieldGroup Label=\"" + testGroupName + "\">"
+//                + "<FieldGroup Label=\"Test Node\">"
 //                + "<FieldData XmlPath=\".METATRANSCRIPT.Corpus.Name\" FieldValue=\"Test Field\" KeyName=\"Test KeyName\" LanguageId= \"Test LanguageId\"/>"
 //                + "</FieldGroup>"
 //                + "</DataNode>";
 //        System.out.println("dataXmlString: " + dataXmlString);
 //        MockDataNode dataNode = (MockDataNode) unmarshaller.unmarshal(new StreamSource(new StringReader(dataXmlString)), MockDataNode.class).getValue();
-//        assertEquals(dataNode.fieldGroups[0].fieldArray[0].getFieldValue(), "Test Field");
-//        assertEquals(dataNode.fieldGroups[0].fieldArray[0].getKeyName(), "Test KeyName");
-//        assertEquals(dataNode.fieldGroups[0].fieldArray[0].getLanguageId(), "Test LanguageId");
-//        assertEquals(dataNode.fieldGroups[0].fieldArray[0].getXmlPath(), ".METATRANSCRIPT.Corpus.Name");
+//        assertEquals(dataNode.getFieldGroups().get(0).getFields().get(0).getFieldValue(), "Test Field");
+//        assertEquals(dataNode.getFieldGroups().get(0).getFields().get(0).getKeyName(), "Test KeyName");
+//        assertEquals(dataNode.getFieldGroups().get(0).getFields().get(0).getLanguageId(), "Test LanguageId");
+//        assertEquals(dataNode.getFieldGroups().get(0).getFields().get(0).getXmlPath(), ".METATRANSCRIPT.Corpus.Name");
 //    }
 }

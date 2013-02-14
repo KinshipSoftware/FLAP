@@ -24,10 +24,10 @@ package nl.mpi.flap.model;
  */
 public class MockDataField extends AbstractField {
 
-    String keyName = "";
-    String languageId = "";
-    String fieldValue = "";
-    String xmlPath = "";
+    private String keyName = "";
+    private String languageId = "";
+    private String fieldValue = "";
+    private String xmlPath = "";
 
     @Override
     public String getKeyName() {
