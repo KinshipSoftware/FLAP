@@ -21,7 +21,7 @@ import java.io.IOException;
 import java.util.logging.LogManager;
 
 /**
- *
+ * Base class for plugin runners that prepares logging through logging properties file
  * @author Twan Goosen <twan.goosen@mpi.nl>
  */
 public abstract class PluginTestRunner {

@@ -17,12 +17,14 @@
  */
 package nl.mpi.pluginsamples;
 
-import nl.mpi.flap.plugin.ActivatablePlugin;
 import nl.mpi.flap.module.BaseModule;
+import nl.mpi.flap.plugin.ActivatablePlugin;
 import nl.mpi.flap.plugin.PluginDialogHandler;
 import nl.mpi.flap.plugin.PluginException;
 import nl.mpi.flap.plugin.PluginSessionStorage;
 import nl.mpi.flap.plugin.PluginSettings;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Document : PluginSample Created on : Dec 22, 2011, 3:58:34 PM
@@ -31,7 +33,8 @@ import nl.mpi.flap.plugin.PluginSettings;
  */
 public class PluginSampleActivate implements BaseModule, PluginSettings, ActivatablePlugin {
 
-    boolean isActivated = false;
+    private final static Logger logger = LoggerFactory.getLogger(PluginSampleActivate.class);
+    private boolean isActivated = false;
 
     public String getName() {
         return "Sample Activate Plugin Name";
@@ -54,10 +57,12 @@ public class PluginSampleActivate implements BaseModule, PluginSettings, Activat
     }
 
     public void activatePlugin(PluginDialogHandler dialogHandler, PluginSessionStorage sessionStorage) throws PluginException {
+	logger.info("Sample plugin activated");
         isActivated = true;
     }
 
     public void deactivatePlugin(PluginDialogHandler dialogHandler, PluginSessionStorage sessionStorage) throws PluginException {
+	logger.info("Sample plugin deactivated");
         isActivated = false;
     }
 

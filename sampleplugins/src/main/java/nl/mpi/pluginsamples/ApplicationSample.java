@@ -8,12 +8,12 @@
  *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 package nl.mpi.pluginsamples;
 
@@ -22,6 +22,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenuBar;
@@ -41,68 +43,77 @@ import nl.mpi.pluginloader.ui.PluginMenu;
  */
 public class ApplicationSample extends JFrame {
 
-    public static void main(String[] args) {
-        JFrame jFrame = new ApplicationSample();
-        jFrame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        JMenuBar jMenuBar = new JMenuBar();
-        StringBuilder stringBuilder = new StringBuilder();
-        try {
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(ApplicationSample.class.getResourceAsStream("/readme.txt"), "UTF-8"));
-            String readString;
-            while (null != (readString = bufferedReader.readLine())) {
-                stringBuilder.append(readString);
-                stringBuilder.append("\n");
-            }
-        } catch (IOException exception) {
-            stringBuilder.append(exception.getMessage());
-        }
-        final JTextArea jTextArea = new JTextArea(stringBuilder.toString());
-        PluginManager pluginManager = new PluginManager() {
-            public boolean isActivated(BaseModule kinOathPlugin) {
-                try {
-                    if (kinOathPlugin instanceof ActivatablePlugin) {
-                        return ((ActivatablePlugin) kinOathPlugin).getIsActivated();
-                    }
-                } catch (PluginException exception) {
-                    System.err.println("error getting plugin state:" + exception.getMessage());
-                }
-                return false;
-            }
+    public static void main(String[] args) throws IOException {
+	try {
+	    LogManager logMan = LogManager.getLogManager();
+	    logMan.readConfiguration(ApplicationSample.class.getResourceAsStream("/logging.properties"));
+	} catch (Exception ioEx) {
+	    // Cannot read logging configuration; restore and ignore
+	    LogManager.getLogManager().readConfiguration();
+	    Logger.getLogger("nl.mpi.pluginsamples").warning("Could not read logging configuration, using default");
+	}
 
-            public void activatePlugin(BaseModule kinOathPlugin) {
-                try {
-                    if (kinOathPlugin instanceof ActivatablePlugin) {
-                        ((ActivatablePlugin) kinOathPlugin).activatePlugin(null, null);
-                        jTextArea.setText("activate: \n" + kinOathPlugin.getName() + "\n" + kinOathPlugin.getMajorVersionNumber() + "." + kinOathPlugin.getMinorVersionNumber() + "." + kinOathPlugin.getBuildVersionNumber() + "\n" + kinOathPlugin.getDescription());
-                    } else {
-                        jTextArea.setText("non activateable plugin: \n" + kinOathPlugin.getName() + "\n" + kinOathPlugin.getMajorVersionNumber() + "." + kinOathPlugin.getMinorVersionNumber() + "." + kinOathPlugin.getBuildVersionNumber() + "\n" + kinOathPlugin.getDescription());
-                    }
-                } catch (PluginException exception) {
-                    jTextArea.setText("Error activating plugin: \n" + kinOathPlugin.getName() + "\n" + kinOathPlugin.getMajorVersionNumber() + "." + kinOathPlugin.getMinorVersionNumber() + "." + kinOathPlugin.getBuildVersionNumber() + "\n" + kinOathPlugin.getDescription());
-                }
-            }
+	JFrame jFrame = new ApplicationSample();
+	jFrame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+	JMenuBar jMenuBar = new JMenuBar();
+	StringBuilder stringBuilder = new StringBuilder();
+	try {
+	    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(ApplicationSample.class.getResourceAsStream("/readme.txt"), "UTF-8"));
+	    String readString;
+	    while (null != (readString = bufferedReader.readLine())) {
+		stringBuilder.append(readString);
+		stringBuilder.append("\n");
+	    }
+	} catch (IOException exception) {
+	    stringBuilder.append(exception.getMessage());
+	}
+	final JTextArea jTextArea = new JTextArea(stringBuilder.toString());
+	PluginManager pluginManager = new PluginManager() {
+	    public boolean isActivated(BaseModule kinOathPlugin) {
+		try {
+		    if (kinOathPlugin instanceof ActivatablePlugin) {
+			return ((ActivatablePlugin) kinOathPlugin).getIsActivated();
+		    }
+		} catch (PluginException exception) {
+		    System.err.println("error getting plugin state:" + exception.getMessage());
+		}
+		return false;
+	    }
 
-            public void deactivatePlugin(BaseModule kinOathPlugin) {
-                try {
-                    if (kinOathPlugin instanceof ActivatablePlugin) {
-                        ((ActivatablePlugin) kinOathPlugin).deactivatePlugin(null, null);
-                        jTextArea.setText("deactivate: \n" + kinOathPlugin.getName() + "\n" + kinOathPlugin.getMajorVersionNumber() + "." + kinOathPlugin.getMinorVersionNumber() + "." + kinOathPlugin.getBuildVersionNumber() + "\n" + kinOathPlugin.getDescription());
-                    } else {
-                        jTextArea.setText("non deactivateable plugin: \n" + kinOathPlugin.getName() + "\n" + kinOathPlugin.getMajorVersionNumber() + "." + kinOathPlugin.getMinorVersionNumber() + "." + kinOathPlugin.getBuildVersionNumber() + "\n" + kinOathPlugin.getDescription());
-                    }
-                } catch (PluginException exception) {
-                    jTextArea.setText("error deactivating plugin: \n" + kinOathPlugin.getName() + "\n" + kinOathPlugin.getMajorVersionNumber() + "." + kinOathPlugin.getMinorVersionNumber() + "." + kinOathPlugin.getBuildVersionNumber() + "\n" + kinOathPlugin.getDescription());
-                }
-            }
-        };
-        try {
-            jMenuBar.add(new PluginMenu(new PluginService(new URL[]{new URL("file:///path-to-plugins/plugin-jar-name.jar")}), pluginManager, false));
-        } catch (MalformedURLException exception) {
-            jMenuBar.add(new JLabel(exception.getMessage()));
-        }
-        jFrame.setJMenuBar(jMenuBar);
-        jFrame.setContentPane(new JScrollPane(jTextArea));
-        jFrame.pack();
-        jFrame.setVisible(true);
+	    public void activatePlugin(BaseModule kinOathPlugin) {
+		try {
+		    if (kinOathPlugin instanceof ActivatablePlugin) {
+			((ActivatablePlugin) kinOathPlugin).activatePlugin(null, null);
+			jTextArea.setText("activate: \n" + kinOathPlugin.getName() + "\n" + kinOathPlugin.getMajorVersionNumber() + "." + kinOathPlugin.getMinorVersionNumber() + "." + kinOathPlugin.getBuildVersionNumber() + "\n" + kinOathPlugin.getDescription());
+		    } else {
+			jTextArea.setText("non activateable plugin: \n" + kinOathPlugin.getName() + "\n" + kinOathPlugin.getMajorVersionNumber() + "." + kinOathPlugin.getMinorVersionNumber() + "." + kinOathPlugin.getBuildVersionNumber() + "\n" + kinOathPlugin.getDescription());
+		    }
+		} catch (PluginException exception) {
+		    jTextArea.setText("Error activating plugin: \n" + kinOathPlugin.getName() + "\n" + kinOathPlugin.getMajorVersionNumber() + "." + kinOathPlugin.getMinorVersionNumber() + "." + kinOathPlugin.getBuildVersionNumber() + "\n" + kinOathPlugin.getDescription());
+		}
+	    }
+
+	    public void deactivatePlugin(BaseModule kinOathPlugin) {
+		try {
+		    if (kinOathPlugin instanceof ActivatablePlugin) {
+			((ActivatablePlugin) kinOathPlugin).deactivatePlugin(null, null);
+			jTextArea.setText("deactivate: \n" + kinOathPlugin.getName() + "\n" + kinOathPlugin.getMajorVersionNumber() + "." + kinOathPlugin.getMinorVersionNumber() + "." + kinOathPlugin.getBuildVersionNumber() + "\n" + kinOathPlugin.getDescription());
+		    } else {
+			jTextArea.setText("non deactivateable plugin: \n" + kinOathPlugin.getName() + "\n" + kinOathPlugin.getMajorVersionNumber() + "." + kinOathPlugin.getMinorVersionNumber() + "." + kinOathPlugin.getBuildVersionNumber() + "\n" + kinOathPlugin.getDescription());
+		    }
+		} catch (PluginException exception) {
+		    jTextArea.setText("error deactivating plugin: \n" + kinOathPlugin.getName() + "\n" + kinOathPlugin.getMajorVersionNumber() + "." + kinOathPlugin.getMinorVersionNumber() + "." + kinOathPlugin.getBuildVersionNumber() + "\n" + kinOathPlugin.getDescription());
+		}
+	    }
+	};
+	try {
+	    jMenuBar.add(new PluginMenu(new PluginService(new URL[]{new URL("file:///path-to-plugins/plugin-jar-name.jar")}), pluginManager, false));
+	} catch (MalformedURLException exception) {
+	    jMenuBar.add(new JLabel(exception.getMessage()));
+	}
+	jFrame.setJMenuBar(jMenuBar);
+	jFrame.setContentPane(new JScrollPane(jTextArea));
+	jFrame.pack();
+	jFrame.setVisible(true);
     }
 }
