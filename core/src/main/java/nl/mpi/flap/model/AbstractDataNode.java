@@ -48,10 +48,9 @@ public abstract class AbstractDataNode implements PluginArbilDataNode, Serializa
     @XmlElement(name = "Type")
     public abstract AbstractDataNodeType getType();
 
-    @XmlElement(name = "FieldGroup")
-    public abstract void setFieldGroups(List<FieldGroup> fieldGroups);
-
-    public abstract List<FieldGroup> getFieldGroups();
+//    @XmlElement(name = "FieldGroup")
+//    public abstract void setFieldGroups(List<FieldGroup> fieldGroups);
+//    public abstract List<FieldGroup> getFieldGroups();
 //    private ArrayList<FieldArray> getFieldArray() {
 //        ArrayList<FieldArray> fieldArrays = new ArrayList<FieldArray>();
 //        for (PluginField[] currentEntry : getFields().entrySet()) {
@@ -75,14 +74,15 @@ public abstract class AbstractDataNode implements PluginArbilDataNode, Serializa
     // todo: we could return a xml ref here
 //    @XmlElementWrapper(name = "DataNodeChildWrapper")
 //    @XmlElement(name = "DataNode", type = AbstractDataNode.class)
-
     @XmlTransient
-    public abstract AbstractDataNode[] getChildArray();
+    public abstract List<PluginArbilDataNode> getChildArray();
 
     @XmlElement(name = "ChildId")
+    public abstract void setChildIds(List<String> idString);
+
     public List<String> getChildIds() {
         ArrayList<String> childIds = new ArrayList<String>();
-        for (AbstractDataNode dataNode : getChildArray()) {
+        for (PluginArbilDataNode dataNode : getChildArray()) {
             childIds.add(dataNode.getID());
         }
         return childIds;

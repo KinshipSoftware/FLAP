@@ -17,6 +17,8 @@
  */
 package nl.mpi.flap.model;
 
+import java.util.List;
+
 /**
  * Document : PluginArbilDataNode <br> Created on Sep 10, 2012, 6:09:01 PM <br>
  *
@@ -40,5 +42,5 @@ public interface PluginArbilDataNode {
      *
      * @return An array of the next level child nodes.
      */
-    public abstract PluginArbilDataNode[] getChildArray();
+    public abstract List<PluginArbilDataNode> getChildArray();
 }
