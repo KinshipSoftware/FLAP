@@ -68,7 +68,7 @@ public class AbstractDataJaxBTest {
      */
     @Test
     public void testDataFieldForJaxB() throws JAXBException {
-        JAXBContext jaxbContext = JAXBContext.newInstance(/*, AbstractField.class,MockFieldGroup.class*/FieldGroup.class, MockDataNode.class, AbstractField.class);
+        JAXBContext jaxbContext = JAXBContext.newInstance(FieldGroup.class, MockDataNode.class, DataField.class);
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
         String dataXmlString = "<DataNode Label=\"Test Node\" ID=\"Test Group\">"
                 + "<FieldGroup Label=\"Test Group Name\">"

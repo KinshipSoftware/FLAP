@@ -33,12 +33,12 @@ public class FieldGroup implements Serializable {
     @XmlTransient
     private String fieldName;
     @XmlTransient
-    private List<? extends AbstractField> fieldArray;
+    private List<? extends DataField> fieldArray;
 
     private FieldGroup() {
     }
 
-    public FieldGroup(String feildName, List<? extends AbstractField> fieldArray) {
+    public FieldGroup(String feildName, List<? extends DataField> fieldArray) {
         this.fieldName = feildName;
         this.fieldArray = fieldArray;
     }
@@ -52,12 +52,12 @@ public class FieldGroup implements Serializable {
         return fieldName;
     }
 
-    public void setFields(List<? extends AbstractField> fieldArray) {
+    public void setFields(List<? extends DataField> fieldArray) {
         this.fieldArray = fieldArray;
     }
 
     @XmlElement(name = "FieldData")
-    public List<? extends AbstractField> getFields() {
+    public List<? extends DataField> getFields() {
         return fieldArray;
     }
 }

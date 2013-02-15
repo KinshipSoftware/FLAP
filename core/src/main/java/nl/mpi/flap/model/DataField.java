@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Peter Withers <peter.withers@mpi.nl>
  */
 @XmlRootElement(name = "FieldData")
-public class AbstractField implements PluginField, Serializable {
+public class DataField implements PluginField, Serializable {
 
     private String keyName = "";
     private String languageId = "";
