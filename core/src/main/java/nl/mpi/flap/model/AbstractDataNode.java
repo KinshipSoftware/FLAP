@@ -18,12 +18,10 @@
 package nl.mpi.flap.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * Created on : Dec 27, 2012, 12:26:17 PM
@@ -41,52 +39,17 @@ public abstract class AbstractDataNode implements PluginArbilDataNode, Serializa
     @XmlAttribute(name = "Label")
     public abstract void setLabel(String label);
 
-    public String getLabel() {
-        return this.toString();
-    }
+    public abstract String getLabel();
 
-    @XmlElement(name = "Type")
-    public abstract AbstractDataNodeType getType();
-
+//    @XmlElement(name = "Type")
+//    public abstract AbstractDataNodeType getType();
     @XmlElement(name = "FieldGroup")
     public abstract void setFieldGroups(List<FieldGroup> fieldGroups);
 
     public abstract List<FieldGroup> getFieldGroups();
-//    private ArrayList<FieldArray> getFieldArray() {
-//        ArrayList<FieldArray> fieldArrays = new ArrayList<FieldArray>();
-//        for (PluginField[] currentEntry : getFields().entrySet()) {
-//            fieldArrays.add(new FieldGroup(currentEntry.getKey(), currentEntry.getValue()));
-//        }
-//        return fieldArrays;
-//    }
-//    
-//    @Override
-//    public List<AbstractField[]> getPluginFields() {
-//        List<AbstractField[]> fieldArrays = new ArrayList<AbstractField[]>();
-//        for (AbstractField[] currentField : getFieldsSorted()) {
-//            AbstractField[] copiedField = new AbstractField[currentField.length];
-////            for (AbstractField currentField){
-//    }
-//            fieldArrays.add(copiedField);
-//        }
-//        return fieldArrays;
-//    }
-//    public abstract Hashtable<String, PluginField[]> getFields();
-    // todo: we could return a xml ref here
-//    @XmlElementWrapper(name = "DataNodeChildWrapper")
-//    @XmlElement(name = "DataNode", type = AbstractDataNode.class)
-
-    @XmlTransient
-    public abstract List<PluginArbilDataNode> getChildArray();
 
     @XmlElement(name = "ChildId")
     public abstract void setChildIds(List<String> idString);
 
-    public List<String> getChildIds() {
-        ArrayList<String> childIds = new ArrayList<String>();
-        for (PluginArbilDataNode dataNode : getChildArray()) {
-            childIds.add(dataNode.getID());
-        }
-        return childIds;
-    }
+    public abstract List<String> getChildIds();
 }

@@ -69,10 +69,10 @@ public class MockDataNode extends AbstractDataNode {
         return fieldGroups;
     }
 
-    @Override
-    public List<PluginArbilDataNode> getChildArray() {
-        return null;
-    }
+//    @Override
+//    public List<PluginArbilDataNode> getChildArray() {
+//        return null;
+//    }
 
     @Override
     public List<String> getChildIds() {

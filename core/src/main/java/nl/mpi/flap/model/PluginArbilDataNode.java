@@ -42,5 +42,5 @@ public interface PluginArbilDataNode {
      *
      * @return An array of the next level child nodes.
      */
-    public abstract List<PluginArbilDataNode> getChildArray();
+//    public abstract List<? extends PluginArbilDataNode> getChildList();
 }
