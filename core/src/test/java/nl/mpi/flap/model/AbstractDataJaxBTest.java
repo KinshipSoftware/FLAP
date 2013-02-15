@@ -72,7 +72,7 @@ public class AbstractDataJaxBTest {
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
         String dataXmlString = "<DataNode Label=\"Test Node\" ID=\"Test Group\">"
                 + "<FieldGroup Label=\"Test Group Name\">"
-                + "<FieldData XmlPath=\".METATRANSCRIPT.Corpus.Name\" FieldValue=\"Test Field\" KeyName=\"Test KeyName\" LanguageId= \"Test LanguageId\"/>"
+                + "<FieldData Path=\".METATRANSCRIPT.Corpus.Name\" FieldValue=\"Test Field\" KeyName=\"Test KeyName\" LanguageId= \"Test LanguageId\"/>"
                 + "</FieldGroup>"
                 + "</DataNode>";
         System.out.println("dataXmlString: " + dataXmlString);
@@ -82,6 +82,6 @@ public class AbstractDataJaxBTest {
         assertEquals(dataNode.getFieldGroups().get(0).getFields().get(0).getFieldValue(), "Test Field");
         assertEquals(dataNode.getFieldGroups().get(0).getFields().get(0).getKeyName(), "Test KeyName");
         assertEquals(dataNode.getFieldGroups().get(0).getFields().get(0).getLanguageId(), "Test LanguageId");
-        assertEquals(dataNode.getFieldGroups().get(0).getFields().get(0).getXmlPath(), ".METATRANSCRIPT.Corpus.Name");
+        assertEquals(dataNode.getFieldGroups().get(0).getFields().get(0).getPath(), ".METATRANSCRIPT.Corpus.Name");
     }
 }

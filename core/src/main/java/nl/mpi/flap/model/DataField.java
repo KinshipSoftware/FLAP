@@ -32,7 +32,7 @@ public class DataField implements PluginField, Serializable {
     private String keyName = "";
     private String languageId = "";
     private String fieldValue = "";
-    private String xmlPath = "";
+    private String pathString = "";
 
     public String getKeyName() {
         return keyName;
@@ -61,12 +61,12 @@ public class DataField implements PluginField, Serializable {
         fieldValue = fieldValueToBe;
     }
 
-    public String getXmlPath() {
-        return xmlPath;
+    public String getPath() {
+        return pathString;
     }
 
     @XmlAttribute(name = "Path")
     public void setPath(String xmlPath) {
-        this.xmlPath = xmlPath;
+        this.pathString = xmlPath;
     }
 }
