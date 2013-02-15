@@ -20,6 +20,7 @@ package nl.mpi.flap.model;
 import java.io.Serializable;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
@@ -55,7 +56,7 @@ public class FieldGroup implements Serializable {
         this.fieldArray = fieldArray;
     }
 
-//    @XmlElement(name = "FieldData")
+    @XmlElement(name = "FieldData")
     public List<? extends AbstractField> getFields() {
         return fieldArray;
     }

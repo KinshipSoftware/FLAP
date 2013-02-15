@@ -27,25 +27,46 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Peter Withers <peter.withers@mpi.nl>
  */
 @XmlRootElement(name = "FieldData")
-public abstract class AbstractField implements PluginField, Serializable {
+public class AbstractField implements PluginField, Serializable {
+
+    private String keyName = "";
+    private String languageId = "";
+    private String fieldValue = "";
+    private String xmlPath = "";
+
+    public String getKeyName() {
+        return keyName;
+    }
 
     @XmlAttribute(name = "KeyName")
-    public abstract void setKeyName(String keyName);
+    public void setKeyName(String keyNameLocal) {
+        keyName = keyNameLocal;
+    }
 
-    public abstract String getKeyName();
+    public String getLanguageId() {
+        return languageId;
+    }
 
     @XmlAttribute(name = "LanguageId")
-    public abstract void setLanguageId(String languageId);
+    public void setLanguageId(String languageIdLocal) {
+        languageId = languageIdLocal;
+    }
 
-    public abstract String getLanguageId();
+    public String getFieldValue() {
+        return fieldValue;
+    }
 
     @XmlAttribute(name = "FieldValue")
-    public abstract void setFieldValue(String fieldValue);
+    public void setFieldValue(String fieldValueToBe) {
+        fieldValue = fieldValueToBe;
+    }
 
-    public abstract String getFieldValue();
+    public String getXmlPath() {
+        return xmlPath;
+    }
 
-    @XmlAttribute(name = "XmlPath")
-    public abstract void setXmlPath(String xmlPath);
-
-    public abstract String getXmlPath();
+    @XmlAttribute(name = "Path")
+    public void setPath(String xmlPath) {
+        this.xmlPath = xmlPath;
+    }
 }
