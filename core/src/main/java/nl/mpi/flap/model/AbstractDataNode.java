@@ -29,7 +29,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Peter Withers <peter.withers@mpi.nl>
  */
 @XmlRootElement(name = "DataNode")
-public abstract class AbstractDataNode implements PluginArbilDataNode, Serializable {
+public abstract class AbstractDataNode implements PluginDataNode, Serializable {
 
     @XmlAttribute(name = "ID")
     public abstract void setID(String id);

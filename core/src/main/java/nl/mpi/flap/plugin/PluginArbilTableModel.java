@@ -17,7 +17,7 @@
  */
 package nl.mpi.flap.plugin;
 
-import nl.mpi.flap.model.PluginArbilDataNode;
+import nl.mpi.flap.model.PluginDataNode;
 
 /**
  * Created on : Nov 7, 2012, 3:43:24 PM
@@ -28,5 +28,5 @@ public interface PluginArbilTableModel {
 
     public void removeAllArbilDataNodeRows();
 
-    public void addArbilDataNodes(PluginArbilDataNode[] pluginArbilDataNodes);
+    public void addArbilDataNodes(PluginDataNode[] pluginArbilDataNodes);
 }

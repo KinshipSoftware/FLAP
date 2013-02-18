@@ -17,12 +17,37 @@
  */
 package nl.mpi.flap.model;
 
+import java.io.Serializable;
+import javax.xml.bind.annotation.XmlAttribute;
+
 /**
- * Created on : Feb 12, 2013, 4:13:31 PM
+ * Created on : Feb 12, 2013, 4:34:32 PM
  *
  * @author Peter Withers <peter.withers@mpi.nl>
  */
-public interface DataNodeType {
+public class DataNodeType implements PluginDataNodeType, Serializable {
 
-    String getName();
+    private String nameString;
+    private String typeIdString;
+
+    public DataNodeType() {
+    }
+
+    public String getName() {
+        return nameString;
+    }
+
+    @XmlAttribute(name = "Name")
+    public void setName(String name) {
+        this.nameString = name;
+    }
+
+    public String getID() {
+        return typeIdString;
+    }
+
+    @XmlAttribute(name = "ID")
+    public void setID(String ID) {
+        this.typeIdString = ID;
+    }
 }

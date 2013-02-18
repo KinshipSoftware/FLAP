@@ -17,19 +17,22 @@
  */
 package nl.mpi.flap.model;
 
-import java.io.Serializable;
-import javax.xml.bind.annotation.XmlAttribute;
-
 /**
- * Created on : Feb 12, 2013, 4:34:32 PM
+ * Created on : Dec 19, 2012, 11:54:36 AM
  *
  * @author Peter Withers <peter.withers@mpi.nl>
  */
-public abstract class AbstractDataNodeType implements DataNodeType, Serializable {
+public interface PluginDataField {
 
-    public AbstractDataNodeType() {
-    }
+    public String getKeyName();
 
-    @XmlAttribute(name = "Name")
-    public abstract String getName();
+    public void setKeyName(String keyNameLocal);
+
+    public String getLanguageId();
+
+    public void setLanguageId(String languageIdLocal);
+
+    public String getFieldValue();
+
+    public void setFieldValue(String fieldValueToBe);
 }

@@ -17,7 +17,7 @@
  */
 package nl.mpi.flap.plugin;
 
-import nl.mpi.flap.model.PluginArbilDataNode;
+import nl.mpi.flap.model.PluginDataNode;
 import java.net.URI;
 
 /**
@@ -28,9 +28,9 @@ import java.net.URI;
  */
 public interface PluginArbilDataNodeLoader {
 
-    public PluginArbilDataNode getPluginArbilDataNode(Object registeringObject, URI localUri);
+    public PluginDataNode getPluginArbilDataNode(Object registeringObject, URI localUri);
 
-    public URI getNodeURI(PluginArbilDataNode dataNode) throws WrongNodeTypeException;
+    public URI getNodeURI(PluginDataNode dataNode) throws WrongNodeTypeException;
 
-    public boolean isNodeLoading(PluginArbilDataNode dataNode);
+    public boolean isNodeLoading(PluginDataNode dataNode);
 }

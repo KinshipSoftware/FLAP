@@ -17,14 +17,12 @@
  */
 package nl.mpi.flap.model;
 
-import java.util.List;
-
 /**
- * Document : PluginArbilDataNode <br> Created on Sep 10, 2012, 6:09:01 PM <br>
+ * Document : PluginDataNode <br> Created on Sep 10, 2012, 6:09:01 PM <br>
  *
  * @author Peter Withers <br>
  */
-public interface PluginArbilDataNode {
+public interface PluginDataNode {
 
     /**
      * @return The string identifier for this node, please note that this is not
@@ -35,12 +33,11 @@ public interface PluginArbilDataNode {
     /**
      * @return The note type object for this data node
      */
-    public abstract DataNodeType getType();
-
+    public abstract PluginDataNodeType getType();
     /**
      * Gets an array of the children of this node.
      *
      * @return An array of the next level child nodes.
      */
-//    public abstract List<? extends PluginArbilDataNode> getChildList();
+//    public abstract List<? extends PluginDataNode> getChildList();
 }

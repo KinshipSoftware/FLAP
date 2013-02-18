@@ -18,21 +18,11 @@
 package nl.mpi.flap.model;
 
 /**
- * Created on : Dec 19, 2012, 11:54:36 AM
+ * Created on : Feb 12, 2013, 4:13:31 PM
  *
  * @author Peter Withers <peter.withers@mpi.nl>
  */
-public interface PluginField {
+public interface PluginDataNodeType {
 
-    public String getKeyName();
-
-    public void setKeyName(String keyNameLocal);
-
-    public String getLanguageId();
-
-    public void setLanguageId(String languageIdLocal);
-
-    public String getFieldValue();
-
-    public void setFieldValue(String fieldValueToBe);
+    String getName();
 }

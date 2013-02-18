@@ -29,7 +29,7 @@ public class MockDataNode extends AbstractDataNode {
 
     private String nodeID = null;
     private String label = null;
-    private AbstractDataNodeType dataNodeType = null;
+    private DataNodeType dataNodeType = null;
     private String nodeIconId = null;
     private List<FieldGroup> fieldGroups;
     private List<String> childIds;
@@ -55,7 +55,7 @@ public class MockDataNode extends AbstractDataNode {
     }
 
     @Override
-    public AbstractDataNodeType getType() {
+    public DataNodeType getType() {
         return dataNodeType;
     }
 
