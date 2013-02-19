@@ -7,8 +7,8 @@
     <packaging>jar</packaging>
     <!--    Either use the snapshot version of manually enter the current build number. 
     The build number is only required when depending on the output in other projects or building to the server.-->
-    <version>${plugin.majorVersion}.${plugin.minorVersion}-${plugin.branch}-SNAPSHOT</version>
-    <!--<version>${plugin.majorVersion}.${plugin.minorVersion}.34948-${plugin.branch}</version>-->
+    <!--<version>${plugin.majorVersion}.${plugin.minorVersion}-${plugin.branch}-SNAPSHOT</version>-->
+    <version>${plugin.majorVersion}.${plugin.minorVersion}.35868-${plugin.branch}</version>
     <name>Plugins Core</name>
     <parent>
         <groupId>nl.mpi</groupId>
