@@ -41,8 +41,11 @@ public abstract class AbstractDataNode implements PluginDataNode, Serializable {
 
     public abstract String getLabel();
 
-//    @XmlElement(name = "Type")
-//    public abstract AbstractDataNodeType getType();
+    @XmlElement(name = "Type")
+    public abstract void setType(DataNodeType dataNodeType);
+
+    public abstract DataNodeType getType();
+
     @XmlElement(name = "FieldGroup")
     public abstract void setFieldGroups(List<FieldGroup> fieldGroups);
 

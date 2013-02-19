@@ -60,6 +60,11 @@ public class MockDataNode extends AbstractDataNode {
     }
 
     @Override
+    public void setType(DataNodeType dataNodeType) {
+        this.dataNodeType = dataNodeType;
+    }
+
+    @Override
     public void setFieldGroups(List<FieldGroup> fieldGroups) {
         this.fieldGroups = fieldGroups;
     }
@@ -68,11 +73,6 @@ public class MockDataNode extends AbstractDataNode {
     public List<FieldGroup> getFieldGroups() {
         return fieldGroups;
     }
-
-//    @Override
-//    public List<PluginArbilDataNode> getChildArray() {
-//        return null;
-//    }
 
     @Override
     public List<String> getChildIds() {
