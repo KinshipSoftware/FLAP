@@ -27,9 +27,9 @@ import javax.swing.JLabel;
 import javax.swing.JMenuBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import nl.mpi.arbil.plugin.ActivatablePlugin;
-import nl.mpi.arbil.plugin.PluginException;
-import nl.mpi.kinnate.plugin.BasePlugin;
+import nl.mpi.flap.ActivatablePlugin;
+import nl.mpi.flap.PluginException;
+import nl.mpi.flap.module.BaseModule;
 import nl.mpi.pluginloader.PluginManager;
 import nl.mpi.pluginloader.PluginService;
 import nl.mpi.pluginloader.ui.PluginMenu;
@@ -58,7 +58,7 @@ public class ApplicationSample extends JFrame {
         }
         final JTextArea jTextArea = new JTextArea(stringBuilder.toString());
         PluginManager pluginManager = new PluginManager() {
-            public boolean isActivated(BasePlugin kinOathPlugin) {
+            public boolean isActivated(BaseModule kinOathPlugin) {
                 try {
                     if (kinOathPlugin instanceof ActivatablePlugin) {
                         return ((ActivatablePlugin) kinOathPlugin).getIsActivated();
@@ -69,7 +69,7 @@ public class ApplicationSample extends JFrame {
                 return false;
             }
 
-            public void activatePlugin(BasePlugin kinOathPlugin) {
+            public void activatePlugin(BaseModule kinOathPlugin) {
                 try {
                     if (kinOathPlugin instanceof ActivatablePlugin) {
                         ((ActivatablePlugin) kinOathPlugin).activatePlugin(null, null);
@@ -82,7 +82,7 @@ public class ApplicationSample extends JFrame {
                 }
             }
 
-            public void deactivatePlugin(BasePlugin kinOathPlugin) {
+            public void deactivatePlugin(BaseModule kinOathPlugin) {
                 try {
                     if (kinOathPlugin instanceof ActivatablePlugin) {
                         ((ActivatablePlugin) kinOathPlugin).deactivatePlugin(null, null);
