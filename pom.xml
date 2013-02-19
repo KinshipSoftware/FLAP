@@ -29,7 +29,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <plugin.majorVersion>1</plugin.majorVersion>
         <plugin.minorVersion>1</plugin.minorVersion>
-        <plugin.branch>pretesting</plugin.branch>
+        <plugin.branch>stable</plugin.branch>
         <netbeans.hint.license>gpl20</netbeans.hint.license>
         <plugin.license.copyrightYear>2012</plugin.license.copyrightYear>
     </properties>
