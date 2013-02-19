@@ -17,13 +17,13 @@
  */
 package ${package}.${artifactId};
 
-import nl.mpi.kinnate.plugin.BasePlugin;
+import nl.mpi.flap.module.BaseModule;
 
 /**
  * Hello world plugin
  *
  */
-public class HelloWorldPlugin implements BasePlugin {
+public class HelloWorldPlugin implements BaseModule {
 
     public String getName() {
         return "Hello World Plugin (${artifactId})";
