@@ -17,6 +17,8 @@
  */
 package nl.mpi.flap.model;
 
+import java.util.List;
+
 /**
  * Document : PluginDataNode <br> Created on Sep 10, 2012, 6:09:01 PM <br>
  *
@@ -39,5 +41,5 @@ public interface PluginDataNode {
      *
      * @return An array of the next level child nodes.
      */
-//    public abstract List<? extends PluginDataNode> getChildList();
+    public abstract List<? extends PluginDataNode> getChildList();
 }
