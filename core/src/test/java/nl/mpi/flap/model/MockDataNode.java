@@ -30,9 +30,9 @@ public class MockDataNode extends AbstractDataNode {
     private String nodeID = null;
     private String label = null;
     private DataNodeType dataNodeType = null;
-    private String nodeIconId = null;
     private List<FieldGroup> fieldGroups;
     private List<String> childIds;
+    private List<? extends PluginDataNode> childNodes;
 
     @Override
     public void setID(String id) {
@@ -81,5 +81,15 @@ public class MockDataNode extends AbstractDataNode {
 
     public void setChildIds(List<String> childIds) {
         this.childIds = childIds;
+    }
+
+    @Override
+    public List<? extends PluginDataNode> getChildList() {
+        return childNodes;
+    }
+
+    @Override
+    public void setChildList(List<? extends AbstractDataNode> childNodes) {
+        this.childNodes = childNodes;
     }
 }

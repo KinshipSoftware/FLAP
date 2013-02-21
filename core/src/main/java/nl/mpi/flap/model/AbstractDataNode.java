@@ -58,5 +58,6 @@ public abstract class AbstractDataNode implements PluginDataNode, Serializable {
 
     public abstract List<? extends PluginDataNode> getChildList();
 
-    public abstract void setChildList(List<? extends PluginDataNode>);
+    @XmlElement(name = "DataNode")
+    public abstract void setChildList(List<? extends AbstractDataNode> childNodes);
 }
