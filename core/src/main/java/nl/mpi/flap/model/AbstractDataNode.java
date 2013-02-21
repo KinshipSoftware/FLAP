@@ -55,4 +55,8 @@ public abstract class AbstractDataNode implements PluginDataNode, Serializable {
     public abstract void setChildIds(List<String> idString);
 
     public abstract List<String> getChildIds();
+
+    public abstract List<? extends PluginDataNode> getChildList();
+
+    public abstract void setChildList(List<? extends PluginDataNode>);
 }
