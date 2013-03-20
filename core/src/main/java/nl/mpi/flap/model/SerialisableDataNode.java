@@ -28,35 +28,66 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Peter Withers <peter.withers@mpi.nl>
  */
 @XmlRootElement(name = "DataNode")
-public abstract class SerialisableDataNode implements PluginDataNode {
+public class SerialisableDataNode implements PluginDataNode {
+
+    private String nodeID = null;
+    private String label = null;
+    private DataNodeType dataNodeType = null;
+    private List<FieldGroup> fieldGroups;
+    private List<String> childIds;
+    private List<? extends PluginDataNode> childNodes;
 
     @XmlAttribute(name = "ID")
-    public abstract void setID(String id);
+    public void setID(String id) {
+        nodeID = id;
+    }
 
-    public abstract String getID();
+    public String getID() {
+        return nodeID;
+    }
 
     @XmlAttribute(name = "Label")
-    public abstract void setLabel(String label);
+    public void setLabel(String label) {
+        this.label = label;
+    }
 
-    public abstract String getLabel();
+    public String getLabel() {
+        return label;
+    }
+
+    public DataNodeType getType() {
+        return dataNodeType;
+    }
 
     @XmlElement(name = "Type")
-    public abstract void setType(DataNodeType dataNodeType);
-
-    public abstract DataNodeType getType();
+    public void setType(DataNodeType dataNodeType) {
+        this.dataNodeType = dataNodeType;
+    }
 
     @XmlElement(name = "FieldGroup")
-    public abstract void setFieldGroups(List<FieldGroup> fieldGroups);
+    public void setFieldGroups(List<FieldGroup> fieldGroups) {
+        this.fieldGroups = fieldGroups;
+    }
 
-    public abstract List<FieldGroup> getFieldGroups();
+    public List<FieldGroup> getFieldGroups() {
+        return fieldGroups;
+    }
+
+    public List<String> getChildIds() {
+        return childIds;
+    }
 
     @XmlElement(name = "ChildId")
-    public abstract void setChildIds(List<String> idString);
+    public void setChildIds(List<String> childIds) {
+        this.childIds = childIds;
+    }
 
-    public abstract List<String> getChildIds();
-
-    public abstract List<? extends PluginDataNode> getChildList();
+    public List<? extends PluginDataNode> getChildList() {
+        return childNodes;
+    }
 
     @XmlElement(name = "DataNode")
-    public abstract void setChildList(List<? extends SerialisableDataNode> childNodes);
+    public void setChildList(List<? extends SerialisableDataNode> childNodes) {
+        this.childNodes = childNodes;
+    }
 }

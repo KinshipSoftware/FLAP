@@ -18,8 +18,10 @@
 package nl.mpi.flap.model;
 
 import java.io.StringReader;
+import java.io.StringWriter;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.transform.stream.StreamSource;
 import static org.junit.Assert.*;
@@ -40,11 +42,11 @@ public class AbstractDataJaxBTest {
      */
     @Test
     public void testDataNodeForJaxB() throws JAXBException {
-        JAXBContext jaxbContext = JAXBContext.newInstance(MockDataNode.class);
+        JAXBContext jaxbContext = JAXBContext.newInstance(SerialisableDataNode.class);
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
         String dataXmlString = "<DataNode Label=\"Test Node\" ID=\"Test Group\"><ChildId>Test Child</ChildId></DataNode>";
         System.out.println("dataXmlString: " + dataXmlString);
-        MockDataNode dataNode = (MockDataNode) unmarshaller.unmarshal(new StreamSource(new StringReader(dataXmlString)), MockDataNode.class).getValue();
+        SerialisableDataNode dataNode = (SerialisableDataNode) unmarshaller.unmarshal(new StreamSource(new StringReader(dataXmlString)), SerialisableDataNode.class).getValue();
         assertEquals(dataNode.getLabel(), "Test Node");
         assertEquals(dataNode.getID(), "Test Group");
         assertEquals(dataNode.getChildIds().get(0), "Test Child");
@@ -55,11 +57,11 @@ public class AbstractDataJaxBTest {
      */
     @Test
     public void testFieldGroupForJaxB() throws JAXBException {
-        JAXBContext jaxbContext = JAXBContext.newInstance(FieldGroup.class, MockDataNode.class);
+        JAXBContext jaxbContext = JAXBContext.newInstance(FieldGroup.class, SerialisableDataNode.class);
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
         String dataXmlString = "<DataNode Label=\"Test Node\" ID=\"Test Group\"><FieldGroup Label=\"Test Group Name\"/></DataNode>";
         System.out.println("dataXmlString: " + dataXmlString);
-        MockDataNode dataNode = (MockDataNode) unmarshaller.unmarshal(new StreamSource(new StringReader(dataXmlString)), MockDataNode.class).getValue();
+        SerialisableDataNode dataNode = (SerialisableDataNode) unmarshaller.unmarshal(new StreamSource(new StringReader(dataXmlString)), SerialisableDataNode.class).getValue();
         assertEquals(dataNode.getFieldGroups().get(0).getFieldName(), "Test Group Name");
     }
 
@@ -68,7 +70,7 @@ public class AbstractDataJaxBTest {
      */
     @Test
     public void testDataFieldForJaxB() throws JAXBException {
-        JAXBContext jaxbContext = JAXBContext.newInstance(FieldGroup.class, MockDataNode.class, DataField.class);
+        JAXBContext jaxbContext = JAXBContext.newInstance(FieldGroup.class, SerialisableDataNode.class, DataField.class);
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
         String dataXmlString = "<DataNode Label=\"Test Node\" ID=\"Test Group\">"
                 + "<FieldGroup Label=\"Test Group Name\">"
@@ -76,12 +78,49 @@ public class AbstractDataJaxBTest {
                 + "</FieldGroup>"
                 + "</DataNode>";
         System.out.println("dataXmlString: " + dataXmlString);
-        MockDataNode dataNode = (MockDataNode) unmarshaller.unmarshal(new StreamSource(new StringReader(dataXmlString)), MockDataNode.class).getValue();
+        SerialisableDataNode dataNode = (SerialisableDataNode) unmarshaller.unmarshal(new StreamSource(new StringReader(dataXmlString)), SerialisableDataNode.class).getValue();
         assertEquals(dataNode.getFieldGroups().get(0).getFieldName(), "Test Group Name");
         System.out.println("fields: " + dataNode.getFieldGroups().get(0).getFields());
         assertEquals(dataNode.getFieldGroups().get(0).getFields().get(0).getFieldValue(), "Test Field");
         assertEquals(dataNode.getFieldGroups().get(0).getFields().get(0).getKeyName(), "Test KeyName");
         assertEquals(dataNode.getFieldGroups().get(0).getFields().get(0).getLanguageId(), "Test LanguageId");
         assertEquals(dataNode.getFieldGroups().get(0).getFields().get(0).getPath(), ".METATRANSCRIPT.Corpus.Name");
+    }
+
+    /**
+     * Test of serializing the AbstractDataNode.
+     */
+    @Test
+    public void testSerializeDataNodeForJaxB() throws JAXBException {
+        JAXBContext jaxbContext = JAXBContext.newInstance(SerialisableDataNode.class);
+        Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+        String dataXmlString = "<DataNode Label=\"Test Node\" ID=\"Test Group\"/>";
+        System.out.println("dataXmlString: " + dataXmlString);
+        SerialisableDataNode dataNode = (SerialisableDataNode) unmarshaller.unmarshal(new StreamSource(new StringReader(dataXmlString)), SerialisableDataNode.class).getValue();
+
+        StringWriter stringWriter = new StringWriter();
+        Marshaller marshaller = jaxbContext.createMarshaller();
+        marshaller.marshal(dataNode, stringWriter);
+        System.out.println("Marshaller Output:\n" + stringWriter.toString());
+    }
+
+    /**
+     * Test of serializing the AbstractDataNode with fields.
+     */
+    @Test
+    public void testSerializeDataNodeAndFieldsForJaxB() throws JAXBException {
+        JAXBContext jaxbContext = JAXBContext.newInstance(FieldGroup.class, SerialisableDataNode.class, DataField.class);
+        Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+        String dataXmlString = "<DataNode Label=\"Test Node\" ID=\"Test Group\">"
+                + "<FieldGroup Label=\"Test Group Name\">"
+                + "<FieldData Path=\".METATRANSCRIPT.Corpus.Name\" FieldValue=\"Test Field\" KeyName=\"Test KeyName\" LanguageId= \"Test LanguageId\"/>"
+                + "</FieldGroup>"
+                + "</DataNode>";
+        System.out.println("dataXmlString: " + dataXmlString);
+        SerialisableDataNode dataNode = (SerialisableDataNode) unmarshaller.unmarshal(new StreamSource(new StringReader(dataXmlString)), SerialisableDataNode.class).getValue();
+        StringWriter stringWriter = new StringWriter();
+        Marshaller marshaller = jaxbContext.createMarshaller();
+        marshaller.marshal(dataNode, stringWriter);
+        System.out.println("Marshaller Output:\n" + stringWriter.toString());
     }
 }
