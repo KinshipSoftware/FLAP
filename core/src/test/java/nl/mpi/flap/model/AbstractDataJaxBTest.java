@@ -76,6 +76,7 @@ public class AbstractDataJaxBTest {
                 + "<FieldGroup Label=\"Test Group Name\">"
                 + "<FieldData Path=\".METATRANSCRIPT.Corpus.Name\" FieldValue=\"Test Field\" KeyName=\"Test KeyName\" LanguageId= \"Test LanguageId\"/>"
                 + "</FieldGroup>"
+                + "<DataNode Label=\"Child Node\" ID=\"Test Child\"/>"
                 + "</DataNode>";
         System.out.println("dataXmlString: " + dataXmlString);
         SerialisableDataNode dataNode = (SerialisableDataNode) unmarshaller.unmarshal(new StreamSource(new StringReader(dataXmlString)), SerialisableDataNode.class).getValue();
@@ -85,6 +86,8 @@ public class AbstractDataJaxBTest {
         assertEquals(dataNode.getFieldGroups().get(0).getFields().get(0).getKeyName(), "Test KeyName");
         assertEquals(dataNode.getFieldGroups().get(0).getFields().get(0).getLanguageId(), "Test LanguageId");
         assertEquals(dataNode.getFieldGroups().get(0).getFields().get(0).getPath(), ".METATRANSCRIPT.Corpus.Name");
+        assertEquals(dataNode.getChildList().get(0).getLabel(), "Child Node");
+        assertEquals(dataNode.getChildList().get(0).getID(), "Test Child");
     }
 
     /**
@@ -115,6 +118,7 @@ public class AbstractDataJaxBTest {
                 + "<FieldGroup Label=\"Test Group Name\">"
                 + "<FieldData Path=\".METATRANSCRIPT.Corpus.Name\" FieldValue=\"Test Field\" KeyName=\"Test KeyName\" LanguageId= \"Test LanguageId\"/>"
                 + "</FieldGroup>"
+                + "<DataNode Label=\"Child Node\" ID=\"Test Child\"/>"
                 + "</DataNode>";
         System.out.println("dataXmlString: " + dataXmlString);
         SerialisableDataNode dataNode = (SerialisableDataNode) unmarshaller.unmarshal(new StreamSource(new StringReader(dataXmlString)), SerialisableDataNode.class).getValue();

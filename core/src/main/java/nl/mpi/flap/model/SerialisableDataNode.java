@@ -35,7 +35,7 @@ public class SerialisableDataNode implements PluginDataNode {
     private DataNodeType dataNodeType = null;
     private List<FieldGroup> fieldGroups;
     private List<String> childIds;
-    private List<? extends PluginDataNode> childNodes;
+    private List<? extends SerialisableDataNode> childNodes;
 
     @XmlAttribute(name = "ID")
     public void setID(String id) {
@@ -82,7 +82,7 @@ public class SerialisableDataNode implements PluginDataNode {
         this.childIds = childIds;
     }
 
-    public List<? extends PluginDataNode> getChildList() {
+    public List<? extends SerialisableDataNode> getChildList() {
         return childNodes;
     }
 
