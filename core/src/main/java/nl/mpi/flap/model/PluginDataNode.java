@@ -36,6 +36,17 @@ public interface PluginDataNode {
      * @return The note type object for this data node
      */
     public abstract PluginDataNodeType getType();
+
+    /**
+     * @return The display label for this data node
+     */
+    public abstract String getLabel();
+
+    /**
+     * @return all fields arranged into field group objects for this data node
+     */
+    public abstract List<FieldGroup> getFieldGroups();
+
     /**
      * Gets an array of the children of this node.
      *
