@@ -28,7 +28,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Peter Withers <peter.withers@mpi.nl>
  */
 @XmlRootElement(name = "DataNode")
-public abstract class AbstractDataNode implements PluginDataNode {
+public abstract class SerialisableDataNode implements PluginDataNode {
 
     @XmlAttribute(name = "ID")
     public abstract void setID(String id);
@@ -58,5 +58,5 @@ public abstract class AbstractDataNode implements PluginDataNode {
     public abstract List<? extends PluginDataNode> getChildList();
 
     @XmlElement(name = "DataNode")
-    public abstract void setChildList(List<? extends AbstractDataNode> childNodes);
+    public abstract void setChildList(List<? extends SerialisableDataNode> childNodes);
 }
