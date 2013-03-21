@@ -30,27 +30,27 @@ public interface PluginDataNode {
      * @return The string identifier for this node, please note that this is not
      * an archive handle and will only be relevant to the implementation.
      */
-    public abstract String getID();
+    String getID();
 
     /**
      * @return The note type object for this data node
      */
-    public abstract PluginDataNodeType getType();
+    PluginDataNodeType getType();
 
     /**
      * @return The display label for this data node
      */
-    public abstract String getLabel();
+    String getLabel();
 
     /**
      * @return all fields arranged into field group objects for this data node
      */
-    public abstract List<FieldGroup> getFieldGroups();
+    List<FieldGroup> getFieldGroups();
 
     /**
      * Gets an array of the children of this node.
      *
      * @return An array of the next level child nodes.
      */
-    public abstract List<? extends PluginDataNode> getChildList();
+    List<? extends PluginDataNode> getChildList();
 }
