@@ -17,6 +17,7 @@
  */
 package nl.mpi.flap.model;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
@@ -28,7 +29,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Peter Withers <peter.withers@mpi.nl>
  */
 @XmlRootElement(name = "DataNode")
-public class SerialisableDataNode implements PluginDataNode {
+public class SerialisableDataNode implements PluginDataNode, Serializable {
 
     private String nodeID = null;
     private String label = null;
