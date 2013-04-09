@@ -24,6 +24,10 @@ package nl.mpi.flap.kinnate.entityindexer;
  */
 public class QueryException extends Exception {
 
+    public QueryException(String string, Throwable thrwbl) {
+        super(string, thrwbl);
+    }
+
     public QueryException(Throwable thrwbl) {
         super(thrwbl);
     }

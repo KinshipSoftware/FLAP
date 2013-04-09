@@ -127,4 +127,26 @@ public class AbstractDataJaxBTest {
         marshaller.marshal(dataNode, stringWriter);
         System.out.println("Marshaller Output:\n" + stringWriter.toString());
     }
+
+    /**
+     * Test of serializing the AbstractDataNode with types.
+     */
+    @Test
+    public void testSerializeDataNodeAndTypesForJaxB() throws JAXBException {
+        JAXBContext jaxbContext = JAXBContext.newInstance(FieldGroup.class, SerialisableDataNode.class, DataField.class, DataNodeType.class);
+        Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+        String dataXmlString = "<DataNode Label=\"Test Node\" ID=\"Test Group\">"
+                + "<Type Name=\"a test type\" ID=\"a test ID\" Format=\"cmdi\"/>"
+                + "<DataNode Label=\"Child Node\" ID=\"Test Child\"/>"
+                + "</DataNode>";
+        System.out.println("dataXmlString: " + dataXmlString);
+        SerialisableDataNode dataNode = (SerialisableDataNode) unmarshaller.unmarshal(new StreamSource(new StringReader(dataXmlString)), SerialisableDataNode.class).getValue();
+        StringWriter stringWriter = new StringWriter();
+        Marshaller marshaller = jaxbContext.createMarshaller();
+        marshaller.marshal(dataNode, stringWriter);
+        System.out.println("Marshaller Output:\n" + stringWriter.toString());
+        assertEquals(dataNode.getType().getName(), "a test type");
+        assertEquals(dataNode.getType().getID(), "a test ID");
+        assertEquals(dataNode.getType().getFormat(), DataNodeType.FormatType.cmdi);
+    }
 }

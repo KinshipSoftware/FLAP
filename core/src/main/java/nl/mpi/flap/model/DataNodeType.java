@@ -30,6 +30,14 @@ public class DataNodeType implements PluginDataNodeType, Serializable {
     private String nameString;
     private String typeIdString;
 
+    public enum FormatType {
+
+        xml,
+        imdi,
+        cmdi;
+    }
+    private FormatType formatType;
+
     public DataNodeType() {
     }
 
@@ -49,5 +57,14 @@ public class DataNodeType implements PluginDataNodeType, Serializable {
     @XmlAttribute(name = "ID")
     public void setID(String ID) {
         this.typeIdString = ID;
+    }
+
+    public FormatType getFormat() {
+        return formatType;
+    }
+
+    @XmlAttribute(name = "Format")
+    public void setFormat(FormatType formatType) {
+        this.formatType = formatType;
     }
 }
