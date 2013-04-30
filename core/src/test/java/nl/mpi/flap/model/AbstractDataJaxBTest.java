@@ -24,6 +24,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.transform.stream.StreamSource;
+import nl.mpi.flap.plugin.PluginException;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
@@ -41,15 +42,16 @@ public class AbstractDataJaxBTest {
      * Test of deserializing the AbstractDataNode.
      */
     @Test
-    public void testDataNodeForJaxB() throws JAXBException {
+    public void testDataNodeForJaxB() throws JAXBException, PluginException {
         JAXBContext jaxbContext = JAXBContext.newInstance(SerialisableDataNode.class);
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-        String dataXmlString = "<DataNode Label=\"Test Node\" ID=\"Test Group\"><ChildId>Test Child</ChildId></DataNode>";
+        String dataXmlString = "<DataNode Label=\"Test Node\" ID=\"Test Group\"><ChildLink ID=\"Test Child\"/></DataNode>";
         System.out.println("dataXmlString: " + dataXmlString);
         SerialisableDataNode dataNode = (SerialisableDataNode) unmarshaller.unmarshal(new StreamSource(new StringReader(dataXmlString)), SerialisableDataNode.class).getValue();
         assertEquals(dataNode.getLabel(), "Test Node");
+        // todo: swap these test parameters to the correct order
         assertEquals(dataNode.getID(), "Test Group");
-        assertEquals(dataNode.getChildIds().get(0), "Test Child");
+        assertEquals(dataNode.getChildIds().get(0).getIdString(), "Test Child");
     }
 
     /**

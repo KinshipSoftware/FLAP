@@ -22,6 +22,7 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import nl.mpi.flap.plugin.PluginException;
 
 /**
  * Created on : Dec 27, 2012, 12:26:17 PM
@@ -31,20 +32,22 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "DataNode")
 public class SerialisableDataNode implements PluginDataNode, Serializable {
 
-    private String nodeID = null;
+    private DataNodeLink nodeID = null;
     private String label = null;
     private DataNodeType dataNodeType = null;
     private List<FieldGroup> fieldGroups;
-    private List<String> childIds;
+    private List<DataNodeLink> childIds;
     private List<? extends SerialisableDataNode> childNodes;
 
     @XmlAttribute(name = "ID")
     public void setID(String id) {
-        nodeID = id;
+        final DataNodeLink dataNodeLink = new DataNodeLink();
+        dataNodeLink.setIdString(id);
+        nodeID = dataNodeLink;
     }
 
     public String getID() {
-        return nodeID;
+        return nodeID.getIdString();
     }
 
     @XmlAttribute(name = "Label")
@@ -74,12 +77,12 @@ public class SerialisableDataNode implements PluginDataNode, Serializable {
         return fieldGroups;
     }
 
-    public List<String> getChildIds() {
+    public List<DataNodeLink> getChildIds() throws PluginException {
         return childIds;
     }
 
-    @XmlElement(name = "ChildId")
-    public void setChildIds(List<String> childIds) {
+    @XmlElement(name = "ChildLink")
+    public void setChildIds(List<DataNodeLink> childIds) {
         this.childIds = childIds;
     }
 
