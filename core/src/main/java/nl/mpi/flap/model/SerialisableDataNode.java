@@ -46,7 +46,7 @@ public class SerialisableDataNode implements PluginDataNode, Serializable {
         nodeID = dataNodeLink;
     }
 
-    public String getID() {
+    public String getID() throws PluginException {
         return nodeID.getIdString();
     }
 

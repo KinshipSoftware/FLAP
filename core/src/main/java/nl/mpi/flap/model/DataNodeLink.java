@@ -34,13 +34,14 @@ import nl.mpi.flap.plugin.PluginException;
 public class DataNodeLink implements Serializable {
 
     private String idString;
-    private URI nodeUrl;
+    private URI nodeUri;
+    private String archiveHandle; // todo: add the use of this and use this class in the kinaoth archive linker
 
     public DataNodeLink() {
     }
 
-    public DataNodeLink(URI nodeUrl) throws PluginException {
-        this.nodeUrl = nodeUrl;
+    public DataNodeLink(URI nodeUri) throws PluginException {
+        this.nodeUri = nodeUri;
         this.idString = calculateHashId();
     }
 
@@ -54,12 +55,12 @@ public class DataNodeLink implements Serializable {
     }
 
     public URI getNodeUri() {
-        return nodeUrl;
+        return nodeUri;
     }
 
     @XmlAttribute(name = "url")
-    public void setNodeUrl(URI nodeUrl) {
-        this.nodeUrl = nodeUrl;
+    public void setNodeUri(URI nodeUri) {
+        this.nodeUri = nodeUri;
     }
 
     @Override
@@ -87,7 +88,7 @@ public class DataNodeLink implements Serializable {
     private String calculateHashId() throws PluginException {
         try {
             MessageDigest digest = MessageDigest.getInstance("MD5");
-            final String urlString = nodeUrl.toString();
+            final String urlString = nodeUri.toString();
             final byte[] urlBytes = urlString.getBytes();
             digest.update(urlBytes, 0, urlBytes.length);
             StringBuilder hexString = new StringBuilder();

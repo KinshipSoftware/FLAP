@@ -71,7 +71,7 @@ public class AbstractDataJaxBTest {
      * Test of deserializing the DataField.
      */
     @Test
-    public void testDataFieldForJaxB() throws JAXBException {
+    public void testDataFieldForJaxB() throws JAXBException, PluginException {
         JAXBContext jaxbContext = JAXBContext.newInstance(FieldGroup.class, SerialisableDataNode.class, DataField.class);
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
         String dataXmlString = "<DataNode Label=\"Test Node\" ID=\"Test Group\">"
