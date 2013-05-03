@@ -18,7 +18,6 @@
 package nl.mpi.flap.model;
 
 import java.util.List;
-import nl.mpi.flap.plugin.PluginException;
 
 /**
  * Document : PluginDataNode <br> Created on Sep 10, 2012, 6:09:01 PM <br>
@@ -31,7 +30,7 @@ public interface PluginDataNode {
      * @return The string identifier for this node, please note that this is not
      * an archive handle and will only be relevant to the implementation.
      */
-    String getID() throws PluginException;
+    String getID() throws ModelException;
 
     /**
      * @return The note type object for this data node

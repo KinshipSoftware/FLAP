@@ -42,7 +42,7 @@ public class AbstractDataJaxBTest {
      * Test of deserializing the AbstractDataNode.
      */
     @Test
-    public void testDataNodeForJaxB() throws JAXBException, PluginException {
+    public void testDataNodeForJaxB() throws JAXBException, ModelException {
         JAXBContext jaxbContext = JAXBContext.newInstance(SerialisableDataNode.class);
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
         String dataXmlString = "<DataNode Label=\"Test Node\" ID=\"Test Group\"><ChildLink ID=\"Test Child\"/></DataNode>";
@@ -71,7 +71,7 @@ public class AbstractDataJaxBTest {
      * Test of deserializing the DataField.
      */
     @Test
-    public void testDataFieldForJaxB() throws JAXBException, PluginException {
+    public void testDataFieldForJaxB() throws JAXBException, ModelException {
         JAXBContext jaxbContext = JAXBContext.newInstance(FieldGroup.class, SerialisableDataNode.class, DataField.class);
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
         String dataXmlString = "<DataNode Label=\"Test Node\" ID=\"Test Group\">"

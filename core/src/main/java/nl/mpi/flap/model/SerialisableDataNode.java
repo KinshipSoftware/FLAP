@@ -22,7 +22,6 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import nl.mpi.flap.plugin.PluginException;
 
 /**
  * Created on : Dec 27, 2012, 12:26:17 PM
@@ -46,7 +45,7 @@ public class SerialisableDataNode implements PluginDataNode, Serializable {
         nodeID = dataNodeLink;
     }
 
-    public String getID() throws PluginException {
+    public String getID() throws ModelException {
         return nodeID.getIdString();
     }
 
@@ -77,7 +76,7 @@ public class SerialisableDataNode implements PluginDataNode, Serializable {
         return fieldGroups;
     }
 
-    public List<DataNodeLink> getChildIds() throws PluginException {
+    public List<DataNodeLink> getChildIds() throws ModelException {
         return childIds;
     }
 
