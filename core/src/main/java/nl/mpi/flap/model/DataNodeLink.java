@@ -18,12 +18,10 @@
 package nl.mpi.flap.model;
 
 import java.io.Serializable;
-import java.net.URI;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
-import nl.mpi.flap.plugin.PluginException;
 
 /**
  * Created on : April 29, 2013, 15:48
@@ -34,14 +32,14 @@ import nl.mpi.flap.plugin.PluginException;
 public class DataNodeLink implements Serializable {
 
     private String idString;
-    private URI nodeUri;
+    private String nodeUrlString;
     private String archiveHandle; // todo: add the use of this and use this class in the kinaoth archive linker
 
     public DataNodeLink() {
     }
 
-    public DataNodeLink(URI nodeUri) throws PluginException {
-        this.nodeUri = nodeUri;
+    public DataNodeLink(String nodeUrlString) throws ModelException {
+        this.nodeUrlString = nodeUrlString;
         this.idString = calculateHashId();
     }
 
@@ -54,13 +52,13 @@ public class DataNodeLink implements Serializable {
         this.idString = idString;
     }
 
-    public URI getNodeUri() {
-        return nodeUri;
+    public String getNodeUri() {
+        return nodeUrlString;
     }
 
     @XmlAttribute(name = "url")
-    public void setNodeUri(URI nodeUri) {
-        this.nodeUri = nodeUri;
+    public void setNodeUriString(String nodeUriString) {
+        this.nodeUrlString = nodeUriString;
     }
 
     @Override
@@ -85,10 +83,10 @@ public class DataNodeLink implements Serializable {
         return true;
     }
 
-    private String calculateHashId() throws PluginException {
+    private String calculateHashId() throws ModelException {
         try {
             MessageDigest digest = MessageDigest.getInstance("MD5");
-            final String urlString = nodeUri.toString();
+            final String urlString = nodeUrlString;
             final byte[] urlBytes = urlString.getBytes();
             digest.update(urlBytes, 0, urlBytes.length);
             StringBuilder hexString = new StringBuilder();
@@ -98,7 +96,7 @@ public class DataNodeLink implements Serializable {
             }
             return hexString.toString();
         } catch (NoSuchAlgorithmException algorithmException) {
-            throw new PluginException(algorithmException);
+            throw new ModelException(algorithmException);
         }
     }
 }

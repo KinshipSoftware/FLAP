@@ -41,6 +41,12 @@ public class DataNodeType implements PluginDataNodeType, Serializable {
     public DataNodeType() {
     }
 
+    public DataNodeType(String nameString, String typeIdString, FormatType formatType) {
+        this.nameString = nameString;
+        this.typeIdString = typeIdString;
+        this.formatType = formatType;
+    }
+
     public String getName() {
         return nameString;
     }
@@ -66,5 +72,32 @@ public class DataNodeType implements PluginDataNodeType, Serializable {
     @XmlAttribute(name = "Format")
     public void setFormat(FormatType formatType) {
         this.formatType = formatType;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final DataNodeType other = (DataNodeType) obj;
+        if ((this.nameString == null) ? (other.nameString != null) : !this.nameString.equals(other.nameString)) {
+            return false;
+        }
+        if ((this.typeIdString == null) ? (other.typeIdString != null) : !this.typeIdString.equals(other.typeIdString)) {
+            return false;
+        }
+        if (this.formatType != other.formatType) {
+            return false;
+        }
+        return true;
     }
 }

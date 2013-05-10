@@ -25,4 +25,8 @@ import java.io.Serializable;
  * @author Peter Withers <peter.withers@mpi.nl>
  */
 public class ModelException extends Exception implements Serializable {
+
+    public ModelException(Throwable thrwbl) {
+        super(thrwbl);
+    }
 }
