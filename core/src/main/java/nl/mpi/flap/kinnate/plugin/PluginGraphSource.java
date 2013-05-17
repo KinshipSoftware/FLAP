@@ -23,6 +23,7 @@ package nl.mpi.flap.kinnate.plugin;
  * @author Peter Withers <br>
  */
 public interface PluginGraphSource {
+    // todo: continue with the useage of this plugin
     /*    
      * example usages of this plugin type would be:
      * an R graph provider, 
