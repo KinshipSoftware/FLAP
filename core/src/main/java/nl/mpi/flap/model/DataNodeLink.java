@@ -52,7 +52,7 @@ public class DataNodeLink implements Serializable {
         this.idString = idString;
     }
 
-    public String getNodeUri() {
+    public String getNodeUriString() {
         return nodeUrlString;
     }
 
