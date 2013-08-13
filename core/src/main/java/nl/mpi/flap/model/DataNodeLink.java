@@ -32,14 +32,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class DataNodeLink implements Serializable {
 
     private String idString;
-    private String nodeUrlString;
+    private String nodeUriString;
     private String archiveHandle; // todo: add the use of this and use this class in the kinaoth archive linker
 
     public DataNodeLink() {
     }
 
     public DataNodeLink(String nodeUrlString) throws ModelException {
-        this.nodeUrlString = nodeUrlString;
+        this.nodeUriString = nodeUrlString;
         this.idString = calculateHashId();
     }
 
@@ -53,12 +53,12 @@ public class DataNodeLink implements Serializable {
     }
 
     public String getNodeUriString() {
-        return nodeUrlString;
+        return nodeUriString;
     }
 
-    @XmlAttribute(name = "url")
+    @XmlAttribute(name = "URI")
     public void setNodeUriString(String nodeUriString) {
-        this.nodeUrlString = nodeUriString;
+        this.nodeUriString = nodeUriString;
     }
 
     @Override
@@ -86,7 +86,7 @@ public class DataNodeLink implements Serializable {
     private String calculateHashId() throws ModelException {
         try {
             MessageDigest digest = MessageDigest.getInstance("MD5");
-            final String urlString = nodeUrlString;
+            final String urlString = nodeUriString;
             final byte[] urlBytes = urlString.getBytes();
             digest.update(urlBytes, 0, urlBytes.length);
             StringBuilder hexString = new StringBuilder();
