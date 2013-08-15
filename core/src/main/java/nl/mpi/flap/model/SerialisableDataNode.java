@@ -31,7 +31,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "DataNode")
 public class SerialisableDataNode implements PluginDataNode, Serializable {
 
-    private final DataNodeLink dataNodeLink = new DataNodeLink();
+    private DataNodeLink dataNodeLink = new DataNodeLink();
     private String label = null;
     private DataNodeType dataNodeType = null;
     private List<FieldGroup> fieldGroups;
