@@ -45,12 +45,13 @@ public class AbstractDataJaxBTest {
     public void testDataNodeForJaxB() throws JAXBException, ModelException {
         JAXBContext jaxbContext = JAXBContext.newInstance(SerialisableDataNode.class);
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-        String dataXmlString = "<DataNode Label=\"Test Node\" ID=\"Test Group\"><ChildLink ID=\"Test Child\"/></DataNode>";
+        String dataXmlString = "<DataNode Label=\"Test Node\" ID=\"Test Group\" URI=\"Test URI\"><ChildLink ID=\"Test Child\"/></DataNode>";
         System.out.println("dataXmlString: " + dataXmlString);
         SerialisableDataNode dataNode = (SerialisableDataNode) unmarshaller.unmarshal(new StreamSource(new StringReader(dataXmlString)), SerialisableDataNode.class).getValue();
         assertEquals(dataNode.getLabel(), "Test Node");
         // todo: swap these test parameters to the correct order
         assertEquals(dataNode.getID(), "Test Group");
+        assertEquals(dataNode.getURI(), "Test URI");
         assertEquals(dataNode.getChildIds().get(0).getIdString(), "Test Child");
     }
 
