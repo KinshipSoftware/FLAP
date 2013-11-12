@@ -31,7 +31,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "DataNode")
 public class SerialisableDataNode implements PluginDataNode, Serializable {
 
-    private DataNodeLink dataNodeLink = new DataNodeLink();
+    private final DataNodeLink dataNodeLink = new DataNodeLink();
     private String label = null;
     private DataNodeType dataNodeType = null;
     private List<FieldGroup> fieldGroups;
@@ -54,6 +54,15 @@ public class SerialisableDataNode implements PluginDataNode, Serializable {
 
     public String getURI() throws ModelException {
         return dataNodeLink.getNodeUriString();
+    }
+
+    public String getArchiveHandle() {
+        return dataNodeLink.getArchiveHandle();
+    }
+
+    @XmlAttribute(name = "ArchiveHandle")
+    public void setArchiveHandle(String archiveHandle) {
+        this.dataNodeLink.setArchiveHandle(archiveHandle);
     }
 
     @XmlAttribute(name = "Label")

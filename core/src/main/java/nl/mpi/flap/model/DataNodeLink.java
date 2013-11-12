@@ -38,8 +38,9 @@ public class DataNodeLink implements Serializable {
     public DataNodeLink() {
     }
 
-    public DataNodeLink(String nodeUrlString) throws ModelException {
+    public DataNodeLink(String nodeUrlString, String archiveHandle) throws ModelException {
         this.nodeUriString = nodeUrlString;
+        this.archiveHandle = archiveHandle;
         this.idString = calculateHashId();
     }
 
@@ -59,6 +60,15 @@ public class DataNodeLink implements Serializable {
     @XmlAttribute(name = "URI")
     public void setNodeUriString(String nodeUriString) {
         this.nodeUriString = nodeUriString;
+    }
+
+    public String getArchiveHandle() {
+        return archiveHandle;
+    }
+
+    @XmlAttribute(name = "ArchiveHandle")
+    public void setArchiveHandle(String archiveHandle) {
+        this.archiveHandle = archiveHandle;
     }
 
     @Override
@@ -86,8 +96,14 @@ public class DataNodeLink implements Serializable {
     private String calculateHashId() throws ModelException {
         try {
             MessageDigest digest = MessageDigest.getInstance("MD5");
-            final String urlString = nodeUriString;
-            final byte[] urlBytes = urlString.getBytes();
+            final String hashableString;
+            if (archiveHandle != null && !archiveHandle.isEmpty()) {
+                // we prefer the archive handle over the url for the hash id
+                hashableString = archiveHandle;
+            } else {
+                hashableString = nodeUriString;
+            }
+            final byte[] urlBytes = hashableString.getBytes();
             digest.update(urlBytes, 0, urlBytes.length);
             StringBuilder hexString = new StringBuilder();
             byte[] md5sum = digest.digest();
