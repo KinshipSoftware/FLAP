@@ -29,6 +29,7 @@ public class DataNodeType implements PluginDataNodeType, Serializable {
 
     private String nameString;
     private String typeIdString;
+    public static final String IMDI_RESOURCE = "imdi.resource";
 
     public enum FormatType {
 

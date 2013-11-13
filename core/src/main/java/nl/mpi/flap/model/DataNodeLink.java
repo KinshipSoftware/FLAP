@@ -41,7 +41,7 @@ public class DataNodeLink implements Serializable {
     public DataNodeLink(String nodeUrlString, String archiveHandle) throws ModelException {
         this.nodeUriString = nodeUrlString;
         this.archiveHandle = archiveHandle;
-        this.idString = calculateHashId();
+        this.idString = calculateHashId(nodeUrlString);
     }
 
     public String getIdString() {
@@ -93,16 +93,9 @@ public class DataNodeLink implements Serializable {
         return true;
     }
 
-    private String calculateHashId() throws ModelException {
+    private String calculateHashId(final String hashableString) throws ModelException {
         try {
             MessageDigest digest = MessageDigest.getInstance("MD5");
-            final String hashableString;
-            if (archiveHandle != null && !archiveHandle.isEmpty()) {
-                // we prefer the archive handle over the url for the hash id
-                hashableString = archiveHandle;
-            } else {
-                hashableString = nodeUriString;
-            }
             final byte[] urlBytes = hashableString.getBytes();
             digest.update(urlBytes, 0, urlBytes.length);
             StringBuilder hexString = new StringBuilder();
