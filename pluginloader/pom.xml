@@ -6,7 +6,7 @@
     <artifactId>pluginloader</artifactId>
     <!--    Either use the snapshot version of manually enter the current build number. 
     The build number is only required when depending on the output in other projects or building to the server.-->
-    <version>${plugin.majorVersion}.${plugin.minorVersion}-${plugin.branch}-SNAPSHOT</version>
+    <version>1.3-pretesting-SNAPSHOT</version>
     <!--<version>${plugin.majorVersion}.${plugin.minorVersion}.34202-${plugin.branch}</version>-->
     <packaging>jar</packaging>
 
