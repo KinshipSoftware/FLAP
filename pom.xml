@@ -159,5 +159,17 @@
             <url>https://lux15.mpi.nl/nexus/content/repositories/MPI</url>
         </repository>
     </distributionManagement>
+    <repositories>
+        <repository>
+            <id>MPI</id>
+            <name>MPI LAT Repository/</name>
+            <url>http://lux15.mpi.nl/nexus/content/groups/public</url>
+        </repository>
+        <repository>
+            <id>MPI-Snapshot</id>
+            <name>MPI LAT Repository/</name>
+            <url>http://lux15.mpi.nl/nexus/content/repositories/MPI-Snapshots</url>
+        </repository>
+    </repositories>
 </project>
 
