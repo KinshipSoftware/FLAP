@@ -38,7 +38,7 @@
             <plugin>
                 <groupId>nl.mpi</groupId>
                 <artifactId>version-control-check</artifactId>
-                <version>1.0.20-testing</version>
+                <version>1.0.22-testing</version>
                 <executions>
                     <execution>
                         <goals>
