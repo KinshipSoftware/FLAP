@@ -54,31 +54,6 @@
                     <target>1.5</target>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>nl.mpi</groupId>
-                <artifactId>version-control-check</artifactId>
-                <version>1.0.21-testing</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>revision</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <verbose>true</verbose>
-                    <vcsType>svn</vcsType>
-                    <allowSnapshots>true</allowSnapshots>
-                    <projectDirectory>${project.basedir}</projectDirectory>
-                    <majorVersion>1</majorVersion>
-                    <minorVersion>3</minorVersion>
-                    <buildType>pretesting</buildType>
-                    <propertiesPrefix>plugin</propertiesPrefix>
-                    <shortVersionModules>
-                        <param>plugins-core-parent</param>
-                    </shortVersionModules>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
     <dependencies>
