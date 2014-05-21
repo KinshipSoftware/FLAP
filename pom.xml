@@ -159,6 +159,13 @@
             <url>https://lux15.mpi.nl/nexus/content/repositories/MPI</url>
         </repository>
     </distributionManagement>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>MPI</id>
+            <name>MPI LAT Repository/</name>
+            <url>http://lux15.mpi.nl/nexus/content/groups/public</url>
+        </pluginRepository>
+    </pluginRepositories>
     <repositories>
         <repository>
             <id>MPI</id>
