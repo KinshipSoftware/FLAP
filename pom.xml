@@ -38,7 +38,7 @@
             <plugin>
                 <groupId>nl.mpi</groupId>
                 <artifactId>version-control-check</artifactId>
-                <version>1.0.17-testing</version>
+                <version>1.0.18-testing</version>
                 <executions>
                     <execution>
                         <goals>
@@ -54,9 +54,7 @@
                     <minorVersion>3</minorVersion>
                     <buildType>pretesting</buildType>
                     <propertiesPrefix>plugin</propertiesPrefix>
-                    <shortVersionModules>
-                        <param>plugins-core-parent</param>
-                    </shortVersionModules>
+                    <shortVersionModule>plugins-core-parent</shortVersionModule>
                 </configuration>
             </plugin>
             <plugin>
