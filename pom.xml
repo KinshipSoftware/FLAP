@@ -38,7 +38,7 @@
             <plugin>
                 <groupId>nl.mpi</groupId>
                 <artifactId>version-control-check</artifactId>
-                <version>1.0.15-testing</version>
+                <version>1.0.17-testing</version>
                 <executions>
                     <execution>
                         <goals>
@@ -50,7 +50,6 @@
                     <verbose>true</verbose>
                     <vcsType>svn</vcsType>
                     <allowSnapshots>true</allowSnapshots>
-                    <projectDirectory>${project.basedir}</projectDirectory>
                     <majorVersion>1</majorVersion>
                     <minorVersion>3</minorVersion>
                     <buildType>pretesting</buildType>
