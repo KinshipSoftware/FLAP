@@ -102,6 +102,11 @@ public class SerialisableDataNode implements PluginDataNode, Serializable {
         this.childIds = childIds;
     }
 
+    @XmlElement(name = "linkCount")
+    public Integer getLinkCount() {
+        return null;
+    }
+
     public List<? extends SerialisableDataNode> getChildList() {
         return childNodes;
     }
