@@ -24,5 +24,5 @@ package nl.mpi.flap.model;
  */
 public interface PluginDataNodeType {
 
-    String getName();
+    String getMimeType();
 }
