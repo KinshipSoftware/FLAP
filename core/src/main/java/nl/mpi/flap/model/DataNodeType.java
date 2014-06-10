@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlAttribute;
  */
 public class DataNodeType implements PluginDataNodeType, Serializable {
 
-//    private String nameString;
+    private String label;
     private String mimeType;
     private String typeIdString;
     public static final String IMDI_RESOURCE = "imdi.resource";
@@ -62,20 +62,21 @@ public class DataNodeType implements PluginDataNodeType, Serializable {
     public DataNodeType() {
     }
 
-    public DataNodeType(String mimeType, String typeIdString, FormatType formatType) {
+    public DataNodeType(String label, String mimeType, String typeIdString, FormatType formatType) {
+        this.label = label;
         this.mimeType = mimeType;
         this.typeIdString = typeIdString;
         this.formatType = formatType;
     }
 
-//    public String getName() {
-//        return nameString;
-//    }
+    public String getLabel() {
+        return label;
+    }
 
-//    @XmlAttribute(name = "Name")
-//    public void setName(String name) {
-//        this.nameString = name;
-//    }
+    @XmlAttribute(name = "Label")
+    public void setLabel(String label) {
+        this.label = label;
+    }
 
     public String getMimeType() {
         return mimeType;
@@ -129,6 +130,9 @@ public class DataNodeType implements PluginDataNodeType, Serializable {
         }
         final DataNodeType other = (DataNodeType) obj;
         if ((this.mimeType == null) ? (other.mimeType != null) : !this.mimeType.equals(other.mimeType)) {
+            return false;
+        }
+        if ((this.label == null) ? (other.label != null) : !this.label.equals(other.label)) {
             return false;
         }
         if ((this.typeIdString == null) ? (other.typeIdString != null) : !this.typeIdString.equals(other.typeIdString)) {

@@ -35,6 +35,7 @@ public class SerialisableDataNode implements PluginDataNode, Serializable {
     private DataNodeLink dataNodeLink = new DataNodeLink();
     private String label = null;
     private DataNodeType dataNodeType = null;
+    private DataNodePermissions dataNodePermissions = null;
     private List<FieldGroup> fieldGroups;
     private List<DataNodeLink> childIds;
     private List<? extends SerialisableDataNode> childNodes;
@@ -82,6 +83,15 @@ public class SerialisableDataNode implements PluginDataNode, Serializable {
     @XmlElement(name = "Type")
     public void setType(DataNodeType dataNodeType) {
         this.dataNodeType = dataNodeType;
+    }
+
+    public DataNodePermissions getPermissions() {
+        return dataNodePermissions;
+    }
+
+    @XmlElement(name = "Permissions")
+    public void setPermissions(DataNodePermissions dataNodePermissions) {
+        this.dataNodePermissions = dataNodePermissions;
     }
 
     @XmlElement(name = "FieldGroup")
