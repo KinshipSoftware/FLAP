@@ -26,7 +26,18 @@ import javax.xml.bind.annotation.XmlAttribute;
 public class DataNodePermissions {
 
     private String label;
-    private String id;
+//    private String id;
+
+    public enum AccessLevel {
+
+        closed,
+        external,
+        open_everybody,
+        open_registered_users,
+        permission_needed,
+        unknown;
+    }
+    private AccessLevel accessLevel = AccessLevel.unknown;
 
     public String getLabel() {
         return label;
@@ -37,12 +48,20 @@ public class DataNodePermissions {
         this.label = label;
     }
 
-    public String getID() {
-        return id;
+//    public String getID() {
+//        return id;
+//    }
+//
+//    @XmlAttribute(name = "ID")
+//    public void setID(String ID) {
+//        this.id = ID;
+//    }
+    public AccessLevel getAccessLevel() {
+        return accessLevel;
     }
 
-    @XmlAttribute(name = "ID")
-    public void setID(String ID) {
-        this.id = ID;
+    @XmlAttribute(name = "AccessLevel")
+    public void setAccessLevel(AccessLevel accessLevel) {
+        this.accessLevel = accessLevel;
     }
 }

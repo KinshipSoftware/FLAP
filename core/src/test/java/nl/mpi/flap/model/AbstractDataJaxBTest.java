@@ -24,7 +24,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.transform.stream.StreamSource;
-import nl.mpi.flap.plugin.PluginException;
+import static nl.mpi.flap.model.DataNodePermissions.AccessLevel.open_everybody;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
@@ -140,7 +140,7 @@ public class AbstractDataJaxBTest {
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
         String dataXmlString = "<DataNode Label=\"Test Node\" ID=\"Test Group\">"
                 + "<Type Label=\"a label\" MimeType=\"a test type\" ID=\"a test ID\" Format=\"cmdi\"/>"
-                + "<Permissions Label=\"a permission\" ID=\"a test permission\"/>"
+                + "<Permissions Label=\"a permission\" AccessLevel=\"open_everybody\"/>"
                 + "<DataNode Label=\"Child Node\" ID=\"Test Child\"/>"
                 + "</DataNode>";
         System.out.println("dataXmlString: " + dataXmlString);
@@ -153,7 +153,7 @@ public class AbstractDataJaxBTest {
         assertEquals(dataNode.getType().getMimeType(), "a test type");
         assertEquals(dataNode.getType().getID(), "a test ID");
         assertEquals(dataNode.getPermissions().getLabel(), "a permission");
-        assertEquals(dataNode.getPermissions().getID(), "a test permission");
+        assertEquals(dataNode.getPermissions().getAccessLevel(), open_everybody);
         assertEquals(dataNode.getType().getFormat(), DataNodeType.FormatType.cmdi);
     }
 }

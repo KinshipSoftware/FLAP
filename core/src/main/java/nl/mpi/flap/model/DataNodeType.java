@@ -46,18 +46,7 @@ public class DataNodeType implements PluginDataNodeType, Serializable {
         resource_other,
         resource_video;
     }
-
-    public enum AccessLevel {
-
-        closed,
-        external,
-        open_everybody,
-        open_registered_users,
-        permission_needed,
-        unknown;
-    }
     private FormatType formatType;
-    private AccessLevel accessLevel = AccessLevel.unknown;
 
     public DataNodeType() {
     }
@@ -103,15 +92,6 @@ public class DataNodeType implements PluginDataNodeType, Serializable {
     @XmlAttribute(name = "Format")
     public void setFormat(FormatType formatType) {
         this.formatType = formatType;
-    }
-
-    public AccessLevel getAccessLevel() {
-        return accessLevel;
-    }
-
-    @XmlAttribute(name = "AccessLevel")
-    public void setAccessLevel(AccessLevel accessLevel) {
-        this.accessLevel = accessLevel;
     }
 
     @Override
