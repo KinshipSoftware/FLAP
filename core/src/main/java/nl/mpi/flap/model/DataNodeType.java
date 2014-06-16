@@ -96,7 +96,11 @@ public class DataNodeType implements PluginDataNodeType, Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 5;
+        int hash = 3;
+        hash = 67 * hash + (this.label != null ? this.label.hashCode() : 0);
+        hash = 67 * hash + (this.mimeType != null ? this.mimeType.hashCode() : 0);
+        hash = 67 * hash + (this.typeIdString != null ? this.typeIdString.hashCode() : 0);
+        hash = 67 * hash + (this.formatType != null ? this.formatType.hashCode() : 0);
         return hash;
     }
 
@@ -109,10 +113,10 @@ public class DataNodeType implements PluginDataNodeType, Serializable {
             return false;
         }
         final DataNodeType other = (DataNodeType) obj;
-        if ((this.mimeType == null) ? (other.mimeType != null) : !this.mimeType.equals(other.mimeType)) {
+        if ((this.label == null) ? (other.label != null) : !this.label.equals(other.label)) {
             return false;
         }
-        if ((this.label == null) ? (other.label != null) : !this.label.equals(other.label)) {
+        if ((this.mimeType == null) ? (other.mimeType != null) : !this.mimeType.equals(other.mimeType)) {
             return false;
         }
         if ((this.typeIdString == null) ? (other.typeIdString != null) : !this.typeIdString.equals(other.typeIdString)) {
@@ -122,5 +126,5 @@ public class DataNodeType implements PluginDataNodeType, Serializable {
             return false;
         }
         return true;
-    }
+    }    
 }
