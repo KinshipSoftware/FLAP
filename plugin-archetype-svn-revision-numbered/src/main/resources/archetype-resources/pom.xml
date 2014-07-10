@@ -74,9 +74,9 @@
                 </executions>
             </plugin>        
             <plugin>
-                <groupId>com.google.code.maven-svn-revision-number-plugin</groupId>
-                <artifactId>maven-svn-revision-number-plugin</artifactId>
-                <version>1.7</version>
+                <groupId>nl.mpi</groupId>
+                <artifactId>version-control-check</artifactId>
+                <version>1.0.21-testing</version>
                 <executions>
                     <execution>
                         <goals>
@@ -85,13 +85,17 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <entries>
-                        <entry>
-                            <path>${basedir}/src</path>
-                            <!-- this will populate "plugin.version.revision" -->
-                            <prefix>plugin.version</prefix>
-                        </entry>
-                    </entries>
+                    <verbose>true</verbose>
+                    <vcsType>svn</vcsType>
+                    <allowSnapshots>true</allowSnapshots>
+                    <projectDirectory>${project.basedir}</projectDirectory>
+                    <majorVersion>1</majorVersion>
+                    <minorVersion>2</minorVersion>
+                    <buildType>pretesting</buildType>
+                    <propertiesPrefix>plugin</propertiesPrefix>
+                    <shortVersionModules>
+                        <param>plugins-core-parent</param>
+                    </shortVersionModules>
                 </configuration>
             </plugin>
         </plugins>
@@ -111,7 +115,7 @@
         <dependency>
             <groupId>nl.mpi</groupId>
             <artifactId>pluginloader</artifactId>
-            <version>0.1.34202-pretesting</version> todo: change to stable
+            <version>0.1.34202-stable</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

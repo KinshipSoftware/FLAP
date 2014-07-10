@@ -29,12 +29,34 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <plugin.majorVersion>1</plugin.majorVersion>
         <plugin.minorVersion>2</plugin.minorVersion>
-        <plugin.branch>testing</plugin.branch>
+        <plugin.branch>stable</plugin.branch>
         <netbeans.hint.license>gpl20</netbeans.hint.license>
         <plugin.license.copyrightYear>2012</plugin.license.copyrightYear>
     </properties>
     <build>
         <plugins>
+            <plugin>
+                <groupId>nl.mpi</groupId>
+                <artifactId>version-control-check</artifactId>
+                <version>1.0.21-testing</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>revision</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <verbose>true</verbose>
+                    <vcsType>svn</vcsType>
+                    <allowSnapshots>false</allowSnapshots>
+                    <majorVersion>1</majorVersion>
+                    <minorVersion>2</minorVersion>
+                    <buildType>stable</buildType>
+                    <propertiesPrefix>plugin</propertiesPrefix>
+                    <shortVersionModule>plugins-core-parent</shortVersionModule>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>com.mycila.maven-license-plugin</groupId>
                 <artifactId>maven-license-plugin</artifactId>
@@ -77,6 +99,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.9.1</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
@@ -89,6 +112,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -111,12 +135,12 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>1.7.2</version>
+            <version>1.7.7</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-jdk14</artifactId>
-            <version>1.7.2</version>
+            <version>1.7.7</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -132,5 +156,24 @@
             <url>https://lux15.mpi.nl/nexus/content/repositories/MPI</url>
         </repository>
     </distributionManagement>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>MPI</id>
+            <name>MPI LAT Repository/</name>
+            <url>http://lux15.mpi.nl/nexus/content/groups/public</url>
+        </pluginRepository>
+    </pluginRepositories>
+    <repositories>
+        <repository>
+            <id>MPI</id>
+            <name>MPI LAT Repository/</name>
+            <url>http://lux15.mpi.nl/nexus/content/groups/public</url>
+        </repository>
+        <repository>
+            <id>MPI-Snapshot</id>
+            <name>MPI LAT Repository/</name>
+            <url>http://lux15.mpi.nl/nexus/content/repositories/MPI-Snapshots</url>
+        </repository>
+    </repositories>
 </project>
 

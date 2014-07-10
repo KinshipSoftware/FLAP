@@ -6,7 +6,7 @@
     <artifactId>sampleplugins</artifactId>
     <!--    Either use the snapshot version of manually enter the current build number. 
     The build number is only required when depending on the output in other projects or building to the server.-->
-    <version>${plugin.majorVersion}.${plugin.minorVersion}-${plugin.branch}-SNAPSHOT</version>
+    <version>1.2.58-stable</version>
 <!--    <version>${plugin.majorVersion}.${plugin.minorVersion}.34200-${plugin.branch}</version>-->
     <packaging>jar</packaging>
 
@@ -54,27 +54,6 @@
                     <target>1.5</target>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>com.google.code.maven-svn-revision-number-plugin</groupId>
-                <artifactId>maven-svn-revision-number-plugin</artifactId>
-                <version>1.7</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>revision</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <entries>
-                        <entry>
-                            <path>${basedir}/src</path>
-                            <!-- this will populate "plugin.version.revision" -->
-                            <prefix>plugin.version</prefix>
-                        </entry>
-                    </entries>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
     <dependencies>
@@ -87,7 +66,7 @@
         <dependency>
             <groupId>nl.mpi</groupId>
             <artifactId>pluginloader</artifactId>
-            <version>1.2.39381-testing</version>
+            <version>1.2.65-stable</version>
         </dependency>
 <!--        <dependency>
             <groupId>nl.mpi</groupId>
