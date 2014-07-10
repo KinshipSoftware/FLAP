@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>nl.mpi</groupId>
   <artifactId>language-archive-plugin</artifactId>
-  <version>1.2.19-stable</version>
+  <version>1.2.21-stable</version>
   <name>Archetype - language archive plugin</name>
   <url>http://maven.apache.org</url>
 
