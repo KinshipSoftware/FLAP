@@ -24,5 +24,25 @@ package nl.mpi.flap.model;
  */
 public interface PluginDataNodeType {
 
+    public enum FormatType {
+
+        xml,
+        imdi_corpus,
+        imdi_catalogue,
+        imdi_session,
+        imdi_info,
+        cmdi,
+        resource_annotation,
+        resource_audio,
+        resource_lexical,
+        resource_other,
+        resource_video,
+        unkown;
+    }
+
+    String getID();
+
     String getMimeType();
+
+    FormatType getFormat();
 }

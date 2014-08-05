@@ -32,6 +32,16 @@ public interface PluginDataNode {
      */
     String getID() throws ModelException;
 
+    String getURI() throws ModelException;
+
+    String getArchiveHandle();
+
+    DataNodePermissions getPermissions();
+
+    Integer getLinkCount();
+
+    List<DataNodeLink> getChildIds() throws ModelException;
+
     /**
      * @return The note type object for this data node
      */

@@ -32,23 +32,13 @@ public class DataNodeType implements PluginDataNodeType, Serializable {
     private String typeIdString;
     public static final String IMDI_RESOURCE = "imdi.resource";
 
-    public enum FormatType {
-
-        xml,
-        imdi_corpus,
-        imdi_catalogue,
-        imdi_session,
-        imdi_info,
-        cmdi,
-        resource_annotation,
-        resource_audio,
-        resource_lexical,
-        resource_other,
-        resource_video;
-    }
     private FormatType formatType;
 
     public DataNodeType() {
+        this.label = "";
+        this.mimeType = "";
+        this.typeIdString = "";
+        this.formatType = FormatType.unkown;
     }
 
     public DataNodeType(String label, String mimeType, String typeIdString, FormatType formatType) {
@@ -126,5 +116,5 @@ public class DataNodeType implements PluginDataNodeType, Serializable {
             return false;
         }
         return true;
-    }    
+    }
 }
