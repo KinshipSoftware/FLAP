@@ -37,6 +37,8 @@ public interface PluginDataNodeType {
         resource_lexical,
         resource_other,
         resource_video,
+        container, subnode,
+        directory, file,
         unkown;
     }
 
