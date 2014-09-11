@@ -52,7 +52,7 @@
                     <allowSnapshots>true</allowSnapshots>
                     <majorVersion>1</majorVersion>
                     <minorVersion>3</minorVersion>
-                    <buildType>pretesting</buildType>
+                    <buildType>testing</buildType>
                     <propertiesPrefix>plugin</propertiesPrefix>
                     <shortVersionModule>plugins-core-parent</shortVersionModule>
                 </configuration>
