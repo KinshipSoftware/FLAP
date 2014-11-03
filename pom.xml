@@ -48,7 +48,7 @@
                 </executions>
                 <configuration>
                     <verbose>true</verbose>
-                    <vcsType>svn</vcsType>
+                    <vcsType>git</vcsType>
                     <allowSnapshots>false</allowSnapshots>
                     <majorVersion>1</majorVersion>
                     <minorVersion>2</minorVersion>
@@ -108,6 +108,9 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <failOnError>false</failOnError>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
