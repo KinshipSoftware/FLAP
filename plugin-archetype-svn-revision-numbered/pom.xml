@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>nl.mpi</groupId>
   <artifactId>language-archive-plugin-svn-revision-numbered</artifactId>
-  <version>1.2.24-stable</version>
+  <version>1.2.26-stable</version>
   <name>Archetype - language archive plugin svn revision numbered</name>
   <url>http://maven.apache.org</url>
 
