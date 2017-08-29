@@ -17,4 +17,4 @@ deploy:
   github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
   local_dir: ../snapshots
   on:
-    branch: master
+    branch: framework-1-2
