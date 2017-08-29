@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>nl.mpi</groupId>
+  <artifactId>sampleplugins</artifactId>
+  <versioning>
+    <release>1.2.28-stable</release>
+    <versions>
+      <version>1.2.28-stable</version>
+    </versions>
+    <lastUpdated>20170829120417</lastUpdated>
+  </versioning>
+</metadata>
